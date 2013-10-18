@@ -103,6 +103,17 @@ class ResourceSchedulesController < ApplicationController
   end
 
   def startsearch
+    @resource_schedule = ResourceSchedule.new
+
+    # TODO: Filter my Resource Schedules based on user id and date time
+    @myresource_schedules = ResourceSchedule.all
+
+    if(params[:q] =="fc") #Find Car
+    elsif (params[:q] =="fp") #Find Passenger
+    elsif(params[:q]=="gh") #Group Hire
+    else
+    end
+
     respond_to do |format|
       format.html
     end
