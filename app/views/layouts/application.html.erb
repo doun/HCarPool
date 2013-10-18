@@ -7,8 +7,37 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <!--[if lt IE 7]>
+        <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    <![endif]-->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="index.php" title="Carpooling done the right way">
+            <img src="img/RideShare.png" alt="RideShare Logo" title="RideShare Logo" height="26" width="150"/>
+          </a>
+          <ul class="nav pull-right">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">How it Works</a></li>
+            <li><a href="#">Benefits</a></li>
+          </ul>
 
-<%= yield %>
+        </div>  <!--end of container -->
+      </div> <!--end of navbar-inner -->
+    </div> <!--end of fixed top navbar -->
+
+    <div class="container">
+    	<div class="row">
+      		<div class="span12"><%= yield %></div>
+    	</div>
+  </div>       
+
 
 </body>
 </html>
