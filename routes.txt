@@ -1,0 +1,3 @@
+              /auth/:provider/callback(.:format) sessions#create
+auth_failure  /auth/failure(.:format)            :controller#:action
+     signout  /signout(.:format)                 sessions#destroy
