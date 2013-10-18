@@ -14,3 +14,25 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+//
+$(function() {
+    $('#datepicker1').datetimepicker({
+      language: 'en',
+      pickTime: false
+    });
+    $('#datepicker2').datetimepicker({
+      language: 'en',
+      pickTime: false
+    });
+    $('#timepicker1').datetimepicker({
+      language: 'en',
+      pickDate: false,
+      pickSeconds: true
+    });
+    $('#timepicker2').datetimepicker({
+      language: 'en',
+      pickDate: false,
+      pickSeconds: true
+    });
+});
+
