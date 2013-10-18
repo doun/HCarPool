@@ -1,3 +1,6 @@
 class ResourceSchedule < ActiveRecord::Base
-  attr_accessible :available, :destination, :isconfirmed, :ishireconfirmed, :isowner, :isreadytohire, :routeno, :startplace, :starttime, :userId, :userResourceId
+  attr_accessible :available, :destination, :isconfirmed, :ishireconfirmed, :isowner, 
+  :isreadytohire, :routeno, :startplace, :starttime, :userId, :userResourceId
+
+
 end

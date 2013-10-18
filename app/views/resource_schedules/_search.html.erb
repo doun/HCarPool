@@ -1,4 +1,4 @@
-<%= form_for(:resource_schedule, url: findcar_path) do |f| %>
+<%= form_for(@resource_schedule, url: findcar_path) do |f| %>
   <% if @resource_schedule.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@resource_schedule.errors.count, "error") %> prohibited this resource_schedule from being saved:</h2>
@@ -11,8 +11,8 @@
     </div>
   <% end %>
   <% @areas = getAreas %>
-  From <%= select_tag(:startplace, options_for_select(@areas)) %>
-  To <%= select_tag(:destination, options_for_select(@areas)) %>
+  From <%= f.select(:startplace, options_for_select(@areas)) %>
+  To <%= f.select(:destination, options_for_select(@areas)) %>
   At  
 <div id="datepicker1" class="input-append date">
     <input data-format="dd/MM/yyyy" type="text" id="resource_schedule_startdate" name="resource_schedule_startdate" size="20" style="width:80px"></input>
@@ -29,7 +29,7 @@
     </span>
   </div>
 
-  
+
 
 <input id="resource_schedule_isreadytohire" name="resource_schedule[isreadytohire]" type="checkbox" value="1"> Ready to Hire Cab? <input name="commit" type="submit" value="Search for Car">
 <% end %>
