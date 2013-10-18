@@ -24,7 +24,7 @@
           </a>
           <ul class="nav pull-right">
             <% if user_signed_in? %> 
-              <li><%= link_to current_user.name, root_path %></li>
+              <li><%= link_to current_user.name, register_homes_path %></li>
               <li><%= link_to "Logout", destroy_user_session_path, method:'delete' %></li>
             <% else %> 
               <li> <p><a href="/users/auth/facebook" class="btn btn-primary btn-small active"><i class="icon-facebook-sign"></i> &nbsp;Login with Facebook</a></p> </li>

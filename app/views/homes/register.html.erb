@@ -1,0 +1,75 @@
+<%- model_class = UserResource -%>
+<div class="page-header">
+  <h1>Registration form</h1>
+  <%= form_for @user, :url => updateuser_homes_path, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :readonly=>true,  :class => 'text_field uneditable-input' %>
+    </div>
+  </div>
+
+  <h3>Preferences</h3>
+  <%= f.fields_for :preference do |builder| %>
+    
+  <div class="control-group">
+    <label class="control-label" for="user_preference_attributes_acNonac">A/c or Non A/c</label>
+    <div class="controls">
+      <%= builder.check_box :acNonac, :class => 'check_box'%>
+    </div>
+  </div>
+    <div class="control-group">
+    <label class="control-label" for="user_preference_attributes_carModel">Preferred Car Model</label>
+        <div class="controls">
+      <%= builder.select :carModel, ['Indiga', 'Innova', 'Any'], :class => 'select'%>
+    </div>
+  </div>
+    <div class="control-group">
+    <label class="control-label" for="user_preference_attributes_copassangerGender">Co-passanger</label>
+        <div class="controls">
+      <%= builder.select :copassangerGender, ['Male', 'Female', 'Any'], :class => 'select'%>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="user_preference_attributes_maxCapacity">Preferred maximum capacity</label>
+        <div class="controls">
+      <%= builder.text_field :maxCapacity, :class => 'text_field'%>
+    </div>
+  </div>
+    <div class="control-group">
+    <label class="control-label" for="user_preference_attributes_from">Starting Location</label>
+        <div class="controls">
+      <%= builder.text_field :from, :class => 'text_field'%>
+    </div>
+  </div>
+
+    <div class="control-group">
+    <label class="control-label" for="user_preference_attributes_to">Destination location</label>
+              <div class="controls">
+      <%= builder.text_field :to, :class => 'text_field'%>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="updateuser_preference_attributes_startTime">Start Time</label>
+        <div class="controls">
+      <%= builder.text_field :startTime, :class => 'text_field'%>
+    </div>
+  </div>
+
+  <% end %>
+  <h3>Do you own a car? Add your car details here. </h3>
+   <%= link_to "addResource", addResource_homes_path , remote: true%>
+  <div id='resourceList'></div>
+    <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                root_path, :class => 'btn' %>
+  </div>
+<% end %>
+</div>
