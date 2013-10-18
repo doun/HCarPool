@@ -90,6 +90,7 @@ class ResourceSchedulesController < ApplicationController
     @resource_schedule.ishireconfirmed = false
     @resource_schedule.starttime = DateTime.parse(params[:resource_schedule_startdate].to_s + " " + params[:resource_schedule_starttime].to_s, "%d/%m/%Y %H-%M")
 
+    # TODO: We should not be saving this. But, we should just show the results, and give the option to save it
     respond_to do |format|
       if @resource_schedule.save
         format.html { redirect_to @resource_schedule, notice: 'Resource schedule was successfully created.' }
@@ -126,6 +127,7 @@ class ResourceSchedulesController < ApplicationController
     @resource_schedule.ishireconfirmed = false
     @resource_schedule.starttime = DateTime.parse(params[:resource_schedule_startdate].to_s + " " + params[:resource_schedule_starttime].to_s, "%d/%m/%Y %H-%M")
 
+    # TODO: Save this and search for passengers
     respond_to do |format|
       if @resource_schedule.save
         format.html { redirect_to @resource_schedule, notice: 'Resource schedule was successfully created.' }
