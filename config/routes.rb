@@ -14,7 +14,12 @@ end
 
 
 
-  resources :homes
+  resources :homes do
+    get 'register'
+    get 'addResource'
+    get 'start', :on => :collection
+    put 'updateuser'
+  end
 
   get '/findcar' => 'resource_schedules#findcar', :as => 'findcar' 
   post '/findcar' => 'resource_schedules#searchcar', :as => 'findcar'
