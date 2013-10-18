@@ -123,7 +123,8 @@ class ResourceSchedulesController < ApplicationController
     elsif(params[:q]=="gh") #Group Hire
     else
     end
-
+  end
+  
    def findcar
 	@resource_schedule = ResourceSchedule.new
 

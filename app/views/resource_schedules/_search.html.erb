@@ -11,7 +11,7 @@
     </div>
   <% end %>
   
-<% unless @resource_schedule %>
+
 
     <% @areas = getAreas %>
 
@@ -33,17 +33,9 @@
         </span>
       </div>
       Ready to Hire Cab?  <input id="resource_schedule_isreadytohire" style="" name="resource_schedule[isreadytohire]" type="checkbox" value="1"> 
-<%else%>
-    From: <b><%= @resource_schedule.startplace %></b><br/>
-    To: <b><%= @resource_schedule.destination %></b><br/>
-    At: <b><%= @resource_schedule.starttime %></b><br/><br/>
-<% end %>
 
 <input name="commit" type="submit" value="Search for Car">
 
-<% @results.each do |r| %>
-  
-<% end %>
 
 <% end %>
 
