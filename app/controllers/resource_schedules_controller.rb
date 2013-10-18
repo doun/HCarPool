@@ -10,6 +10,16 @@ class ResourceSchedulesController < ApplicationController
     end
   end
 
+  def find
+    @resource_schedule = ResourceSchedule.new
+
+    @results = ResourceSchedule.all
+    
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # GET /resource_schedules/1
   # GET /resource_schedules/1.json
   def show

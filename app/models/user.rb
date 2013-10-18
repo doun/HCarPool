@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
 	                         provider:access_token.provider,
 	                         uid:access_token.uid,
 	                         email:access_token.info.email,
+	                         image_url:'http://graph.facebook.com/'+access_token.uid+'/picture',
 	                         password:Devise.friendly_token[0,20]
 	                         )
 

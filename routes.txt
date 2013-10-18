@@ -1,3 +1,67 @@
-              /auth/:provider/callback(.:format) sessions#create
-auth_failure  /auth/failure(.:format)            :controller#:action
-     signout  /signout(.:format)                 sessions#destroy
+        new_user_session GET      /users/sign_in(.:format)                          devise/sessions#new
+            user_session POST     /users/sign_in(.:format)                          devise/sessions#create
+    destroy_user_session DELETE   /users/sign_out(.:format)                         devise/sessions#destroy
+ user_omniauth_authorize GET|POST /users/auth/:provider(.:format)                   omniauth_callbacks#passthru {:provider=>/facebook/}
+  user_omniauth_callback GET|POST /users/auth/:action/callback(.:format)            omniauth_callbacks#(?-mix:facebook)
+           user_password POST     /users/password(.:format)                         devise/passwords#create
+       new_user_password GET      /users/password/new(.:format)                     devise/passwords#new
+      edit_user_password GET      /users/password/edit(.:format)                    devise/passwords#edit
+                         PUT      /users/password(.:format)                         devise/passwords#update
+cancel_user_registration GET      /users/cancel(.:format)                           devise/registrations#cancel
+       user_registration POST     /users(.:format)                                  devise/registrations#create
+   new_user_registration GET      /users/sign_up(.:format)                          devise/registrations#new
+  edit_user_registration GET      /users/edit(.:format)                             devise/registrations#edit
+                         PUT      /users(.:format)                                  devise/registrations#update
+                         DELETE   /users(.:format)                                  devise/registrations#destroy
+             user_unlock POST     /users/unlock(.:format)                           devise/unlocks#create
+         new_user_unlock GET      /users/unlock/new(.:format)                       devise/unlocks#new
+                         GET      /users/unlock(.:format)                           devise/unlocks#show
+                  routes GET      /routes(.:format)                                 routes#index
+                         POST     /routes(.:format)                                 routes#create
+               new_route GET      /routes/new(.:format)                             routes#new
+              edit_route GET      /routes/:id/edit(.:format)                        routes#edit
+                   route GET      /routes/:id(.:format)                             routes#show
+                         PUT      /routes/:id(.:format)                             routes#update
+                         DELETE   /routes/:id(.:format)                             routes#destroy
+      resource_schedules GET      /resource_schedules(.:format)                     resource_schedules#index
+                         POST     /resource_schedules(.:format)                     resource_schedules#create
+   new_resource_schedule GET      /resource_schedules/new(.:format)                 resource_schedules#new
+  edit_resource_schedule GET      /resource_schedules/:id/edit(.:format)            resource_schedules#edit
+       resource_schedule GET      /resource_schedules/:id(.:format)                 resource_schedules#show
+                         PUT      /resource_schedules/:id(.:format)                 resource_schedules#update
+                         DELETE   /resource_schedules/:id(.:format)                 resource_schedules#destroy
+     user_user_resources GET      /users/:user_id/user_resources(.:format)          user_resources#index
+                         POST     /users/:user_id/user_resources(.:format)          user_resources#create
+  new_user_user_resource GET      /users/:user_id/user_resources/new(.:format)      user_resources#new
+ edit_user_user_resource GET      /users/:user_id/user_resources/:id/edit(.:format) user_resources#edit
+      user_user_resource GET      /users/:user_id/user_resources/:id(.:format)      user_resources#show
+                         PUT      /users/:user_id/user_resources/:id(.:format)      user_resources#update
+                         DELETE   /users/:user_id/user_resources/:id(.:format)      user_resources#destroy
+        user_preferences GET      /users/:user_id/preferences(.:format)             preferences#index
+                         POST     /users/:user_id/preferences(.:format)             preferences#create
+     new_user_preference GET      /users/:user_id/preferences/new(.:format)         preferences#new
+    edit_user_preference GET      /users/:user_id/preferences/:id/edit(.:format)    preferences#edit
+         user_preference GET      /users/:user_id/preferences/:id(.:format)         preferences#show
+                         PUT      /users/:user_id/preferences/:id(.:format)         preferences#update
+                         DELETE   /users/:user_id/preferences/:id(.:format)         preferences#destroy
+                   users GET      /users(.:format)                                  users#index
+                         POST     /users(.:format)                                  users#create
+                new_user GET      /users/new(.:format)                              users#new
+               edit_user GET      /users/:id/edit(.:format)                         users#edit
+                    user GET      /users/:id(.:format)                              users#show
+                         PUT      /users/:id(.:format)                              users#update
+                         DELETE   /users/:id(.:format)                              users#destroy
+                   homes GET      /homes(.:format)                                  homes#index
+                         POST     /homes(.:format)                                  homes#create
+                new_home GET      /homes/new(.:format)                              homes#new
+               edit_home GET      /homes/:id/edit(.:format)                         homes#edit
+                    home GET      /homes/:id(.:format)                              homes#show
+                         PUT      /homes/:id(.:format)                              homes#update
+                         DELETE   /homes/:id(.:format)                              homes#destroy
+                 findcar GET      /findcar(.:format)                                resource_schedules#findcar
+                 findcar POST     /findcar(.:format)                                resource_schedules#searchcar
+           findpassenger GET      /findpassenger(.:format)                          resource_schedules#findpass
+           findpassenger POST     /findpassenger(.:format)                          resource_schedules#searchpass
+             startsearch GET      /search(.:format)                                 resource_schedules#startsearch
+                    find GET      /find(.:format)                                   resource_schedules#find
+                    root          /                                                 homes#index
