@@ -80,4 +80,29 @@ class ResourceSchedulesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # POST /resource_schedules
+  # POST /resource_schedules.json
+  def searchcar
+    @resource_schedule = ResourceSchedule.new(params[:resource_schedule])
+    @resource_schedule.isowner = false
+    @resource_schedule.isconfirmed = false
+    @resource_schedule.ishireconfirmed = false
+
+    respond_to do |format|
+      if @resource_schedule.save
+        format.html { redirect_to @resource_schedule, notice: 'Resource schedule was successfully created.' }
+        format.json { render json: @resource_schedule, status: :created, location: @resource_schedule }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @resource_schedule.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+   def findcar
+	@resource_schedule = ResourceSchedule.new
+	render 'findcar'
+   end
+
 end

@@ -15,7 +15,8 @@ resources :routes
     get 'start', :on => :collection
   end
 
-  match '/findcar' => 'findcar#new'
+  get '/findcar' => 'resource_schedules#findcar', :as => 'findcar' 
+  post '/findcar' => 'resource_schedules#searchcar', :as => 'findcar'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
