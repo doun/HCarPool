@@ -1,4 +1,7 @@
 Hackathon13Carpool::Application.routes.draw do
+  resources :user_resources
+
+
   resources :homes
 
 
