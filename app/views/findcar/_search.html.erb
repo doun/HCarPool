@@ -1,0 +1,32 @@
+<%= form_for(@resource_schedule) do |f| %>
+  <% if @resource_schedule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@resource_schedule.errors.count, "error") %> prohibited this resource_schedule from being saved:</h2>
+
+      <ul>
+      <% @resource_schedule.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  From <input id="resource_schedule_startplace" name="resource_schedule[startplace]" size="30" style="width:100px" type="text">
+  To <input id="resource_schedule_destination" name="resource_schedule[destination]" size="30" style="width:100px" type="text">
+  At  
+<div id="datepicker1" class="input-append date">
+    <input data-format="dd/MM/yyyy" type="text" id="resource_schedule_startdate" name="resource_schedule_startdate" size="20" style="width:80px"></input>
+    <span class="add-on">
+      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+      </i>
+    </span>
+  </div>
+<div id="timepicker1" class="input-append date">
+    <input data-format="hh:mm" type="text" id="resource_schedule_starttime" name="resource_schedule_starttime" style="width:90px"></input>
+    <span class="add-on">
+      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+      </i>
+    </span>
+  </div>
+<input id="resource_schedule_isreadytohire" name="resource_schedule[isreadytohire]" type="checkbox" value="1"> Ready to Hire Cab? <input name="commit" type="submit" value="Search for Car">
+<% end %>
+
