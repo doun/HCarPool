@@ -1,4 +1,6 @@
 Hackathon13Carpool::Application.routes.draw do
+ 
+
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
   resources :homes
@@ -7,8 +9,11 @@ resources :routes
 
   resources :resource_schedules
 
+resources :users do
+   resources :user_resources
+   resources :preferences
+end
 
-  resources :user_resources
 
 
   resources :homes do

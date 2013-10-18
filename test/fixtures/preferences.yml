@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 
+  copassangerGender: MyString
+  acNonac: false
+  carModel: MyString
+  maxCapacity: 1
+  from: MyString
+  to: MyString
+  startTime: 2013-10-18 19:49:33
+
+two:
+  user_id: 
+  copassangerGender: MyString
+  acNonac: false
+  carModel: MyString
+  maxCapacity: 1
+  from: MyString
+  to: MyString
+  startTime: 2013-10-18 19:49:33
