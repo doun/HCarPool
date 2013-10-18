@@ -1,7 +1,7 @@
 <%- model_class = UserResource -%>
 <div class="page-header">
   <h1>Registration form</h1>
-  <%= form_for @user, :url => updateuser_homes_path, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= form_for @user, :url => home_updateuser_path, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
@@ -64,7 +64,7 @@
 
   <% end %>
   <h3>Do you own a car? Add your car details here. </h3>
-   <%= link_to "addResource", addResource_homes_path , remote: true%>
+   <%= link_to "addResource", home_updateuser_path , remote: true%>
   <div id='resourceList'></div>
     <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

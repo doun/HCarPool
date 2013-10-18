@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password,:remember_me
   attr_accessible :provider, :uid, :name, :role_ids, :mobile, :image_url
-
+  attr_accessible :preference_attributes
   has_one :preference
   has_many :user_resource 
   has_many :venues

@@ -21,8 +21,10 @@ class HomesController < ApplicationController
   end
 
   def register
-    @user = current_user
-    @user.build_preference
+    logger.info params 
+    @user = User.find(params[:home_id])
+
+      @user.build_preference
 
     respond_to do |format|
       format.html # start.html.erb
@@ -31,26 +33,20 @@ class HomesController < ApplicationController
   end
 
     def addResource
-    @user = current_user
-    @user.build_user_resource
+    @user = User.find(params[:home_id])
+     @user.build_user_resource
     respond_to do |format|
       format.js # start.html.erb
     end
   end
 
   def updateuser
-    @user = current_user
+    @user = User.new(params[:user])
     @user.save
     
-        
     respond_to do |format|
-      if @user.save
-        format.html { redirect_to register_homes_path, notice: 'Successfully registered.' }
+        format.html { redirect_to home_register_path, notice: 'Successfully registered.' }
         format.json { render json: @user, status: :created, location: @user }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
-    end
   end
 end
