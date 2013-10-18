@@ -61,6 +61,16 @@ Hackathon13Carpool::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => ENV['ADMIN_SMTP_ADDRESS'],
+    :port                 => ENV['ADMIN_SMTP_PORT'],
+    :domain               => ENV['ADMIN_EMAIL_DOMAIN'],
+    :user_name            => ENV['ADMIN_EMAIL_USER'],
+    :password             => ENV['ADMIN_EMAIL_PASSWORD'],
+    :authentication       => :login,
+    :enable_starttls_auto => true  }
+
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
