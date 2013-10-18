@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Userresourceid:</b>
+  <%= @resource_schedule.userResourceId %>
+</p>
+
+<p>
+  <b>Userid:</b>
+  <%= @resource_schedule.userId %>
+</p>
+
+<p>
+  <b>Isowner:</b>
+  <%= @resource_schedule.isowner %>
+</p>
+
+<p>
+  <b>Startplace:</b>
+  <%= @resource_schedule.startplace %>
+</p>
+
+<p>
+  <b>Destination:</b>
+  <%= @resource_schedule.destination %>
+</p>
+
+<p>
+  <b>Starttime:</b>
+  <%= @resource_schedule.starttime %>
+</p>
+
+<p>
+  <b>Routeno:</b>
+  <%= @resource_schedule.routeno %>
+</p>
+
+<p>
+  <b>Available:</b>
+  <%= @resource_schedule.available %>
+</p>
+
+<p>
+  <b>Isconfirmed:</b>
+  <%= @resource_schedule.isconfirmed %>
+</p>
+
+<p>
+  <b>Isreadytohire:</b>
+  <%= @resource_schedule.isreadytohire %>
+</p>
+
+<p>
+  <b>Ishireconfirmed:</b>
+  <%= @resource_schedule.ishireconfirmed %>
+</p>
+
+
+<%= link_to 'Edit', edit_resource_schedule_path(@resource_schedule) %> |
+<%= link_to 'Back', resource_schedules_path %>

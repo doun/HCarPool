@@ -11,12 +11,52 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131018110029) do
+ActiveRecord::Schema.define(:version => 20131018122044) do
 
-create_table "homes", :force => true do |t|
+  create_table "homes", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "resource_schedules", :force => true do |t|
+    t.integer  "userResourceId"
+    t.integer  "userId"
+    t.integer  "isowner"
+    t.string   "startplace"
+    t.string   "destination"
+    t.datetime "starttime"
+    t.integer  "routeno"
+    t.integer  "available"
+    t.boolean  "isconfirmed"
+    t.boolean  "isreadytohire"
+    t.boolean  "ishireconfirmed"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "routes", :force => true do |t|
+    t.integer  "routeno"
+    t.integer  "routeindex"
+    t.string   "area"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "user_resources", :force => true do |t|
+    t.integer  "user_id"
+    t.boolean  "acNonac"
+    t.string   "carModel"
+    t.integer  "maxCapacity"
+    t.string   "imageUrl"
+    t.string   "carNumber"
+    t.boolean  "isOwned"
+    t.string   "driverName"
+    t.boolean  "isSelfDrive"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "user_resources", ["user_id"], :name => "index_user_resources_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email"

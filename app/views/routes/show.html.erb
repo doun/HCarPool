@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Routeno:</b>
+  <%= @route.routeno %>
+</p>
+
+<p>
+  <b>Routeindex:</b>
+  <%= @route.routeindex %>
+</p>
+
+<p>
+  <b>Area:</b>
+  <%= @route.area %>
+</p>
+
+
+<%= link_to 'Edit', edit_route_path(@route) %> |
+<%= link_to 'Back', routes_path %>

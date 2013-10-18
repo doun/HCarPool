@@ -1,4 +1,10 @@
 Hackathon13Carpool::Application.routes.draw do
+  resources :routes
+
+
+  resources :resource_schedules
+
+
   resources :user_resources
 
 

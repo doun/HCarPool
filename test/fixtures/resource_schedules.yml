@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  userResourceId: 1
+  userId: 1
+  isowner: 1
+  startplace: MyString
+  destination: MyString
+  starttime: 2013-10-18 17:50:12
+  routeno: 1
+  available: 1
+  isconfirmed: false
+  isreadytohire: false
+  ishireconfirmed: false
+
+two:
+  userResourceId: 1
+  userId: 1
+  isowner: 1
+  startplace: MyString
+  destination: MyString
+  starttime: 2013-10-18 17:50:12
+  routeno: 1
+  available: 1
+  isconfirmed: false
+  isreadytohire: false
+  ishireconfirmed: false
