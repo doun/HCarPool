@@ -1,22 +1,7 @@
-<%= form_for(@resource_schedule, url: findcar_path) do |f| %>
-  <% if @resource_schedule.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@resource_schedule.errors.count, "error") %> prohibited this resource_schedule from being saved:</h2>
+<% @areas = getAreas %>
 
-      <ul>
-      <% @resource_schedule.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-
-
-    <% @areas = getAreas %>
-
-      From <%= f.select(:startplace, options_for_select(@areas)) %>
-      To <%= f.select(:destination, options_for_select(@areas)) %>
+      From <%= select_tag(:startplace, options_for_select(@areas)) %>
+      To <%= select_tag(:destination, options_for_select(@areas)) %>
       At  
       <div id="datepicker1" class="input-append date">
         <input data-format="dd/MM/yyyy" type="text" id="resource_schedule_startdate" name="resource_schedule_startdate" size="20" style="width:80px"></input>
@@ -34,9 +19,6 @@
       </div>
       Ready to Hire Cab?  <input id="resource_schedule_isreadytohire" style="" name="resource_schedule[isreadytohire]" type="checkbox" value="1"> 
 
-<input name="commit" type="submit" value="Search for Car">
 
-
-<% end %>
-
+<td> <%= link_to image_tag("search_icon.jpg"), find_path, :remote => true %></td> 
 
