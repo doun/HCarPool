@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  acNonac: false
+  carModel: MyString
+  maxCapacity: 1
+  imageUrl: MyString
+  carNumber: MyString
+  isOwned: false
+  driverName: MyString
+  isSelfDrive: false
+
+two:
+  user: 
+  acNonac: false
+  carModel: MyString
+  maxCapacity: 1
+  imageUrl: MyString
+  carNumber: MyString
+  isOwned: false
+  driverName: MyString
+  isSelfDrive: false

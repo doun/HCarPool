@@ -1,0 +1,61 @@
+<%= form_for(@resource_schedule) do |f| %>
+  <% if @resource_schedule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@resource_schedule.errors.count, "error") %> prohibited this resource_schedule from being saved:</h2>
+
+      <ul>
+      <% @resource_schedule.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :userResourceId %><br />
+    <%= f.number_field :userResourceId %>
+  </div>
+  <div class="field">
+    <%= f.label :userId %><br />
+    <%= f.number_field :userId %>
+  </div>
+  <div class="field">
+    <%= f.label :isowner %><br />
+    <%= f.number_field :isowner %>
+  </div>
+  <div class="field">
+    <%= f.label :startplace %><br />
+    <%= f.text_field :startplace %>
+  </div>
+  <div class="field">
+    <%= f.label :destination %><br />
+    <%= f.text_field :destination %>
+  </div>
+  <div class="field">
+    <%= f.label :starttime %><br />
+    <%= f.datetime_select :starttime %>
+  </div>
+  <div class="field">
+    <%= f.label :routeno %><br />
+    <%= f.number_field :routeno %>
+  </div>
+  <div class="field">
+    <%= f.label :available %><br />
+    <%= f.number_field :available %>
+  </div>
+  <div class="field">
+    <%= f.label :isconfirmed %><br />
+    <%= f.check_box :isconfirmed %>
+  </div>
+  <div class="field">
+    <%= f.label :isreadytohire %><br />
+    <%= f.check_box :isreadytohire %>
+  </div>
+  <div class="field">
+    <%= f.label :ishireconfirmed %><br />
+    <%= f.check_box :ishireconfirmed %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

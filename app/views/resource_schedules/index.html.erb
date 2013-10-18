@@ -1,0 +1,43 @@
+<h1>Listing resource_schedules</h1>
+
+<table>
+  <tr>
+    <th>Userresourceid</th>
+    <th>Userid</th>
+    <th>Isowner</th>
+    <th>Startplace</th>
+    <th>Destination</th>
+    <th>Starttime</th>
+    <th>Routeno</th>
+    <th>Available</th>
+    <th>Isconfirmed</th>
+    <th>Isreadytohire</th>
+    <th>Ishireconfirmed</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @resource_schedules.each do |resource_schedule| %>
+  <tr>
+    <td><%= resource_schedule.userResourceId %></td>
+    <td><%= resource_schedule.userId %></td>
+    <td><%= resource_schedule.isowner %></td>
+    <td><%= resource_schedule.startplace %></td>
+    <td><%= resource_schedule.destination %></td>
+    <td><%= resource_schedule.starttime %></td>
+    <td><%= resource_schedule.routeno %></td>
+    <td><%= resource_schedule.available %></td>
+    <td><%= resource_schedule.isconfirmed %></td>
+    <td><%= resource_schedule.isreadytohire %></td>
+    <td><%= resource_schedule.ishireconfirmed %></td>
+    <td><%= link_to 'Show', resource_schedule %></td>
+    <td><%= link_to 'Edit', edit_resource_schedule_path(resource_schedule) %></td>
+    <td><%= link_to 'Destroy', resource_schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Resource schedule', new_resource_schedule_path %>

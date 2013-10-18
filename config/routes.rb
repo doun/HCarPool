@@ -3,6 +3,19 @@ Hackathon13Carpool::Application.routes.draw do
 
   resources :homes
 
+resources :routes
+
+  resources :resource_schedules
+
+
+  resources :user_resources
+
+
+  resources :homes do
+    get 'start', :on => :collection
+  end
+
+  match '/findcar' => 'findcar#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  routeno: 1
+  routeindex: 1
+  area: MyString
+
+two:
+  routeno: 1
+  routeindex: 1
+  area: MyString
