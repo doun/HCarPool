@@ -8,7 +8,9 @@ Hackathon13Carpool::Application.routes.draw do
   resources :user_resources
 
 
-  resources :homes
+  resources :homes do
+    get 'start', :on => :collection
+  end
 
   match '/findcar' => 'findcar#new'
 
