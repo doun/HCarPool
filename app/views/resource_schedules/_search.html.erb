@@ -10,27 +10,40 @@
       </ul>
     </div>
   <% end %>
-  <% @areas = getAreas %>
-  From <%= f.select(:startplace, options_for_select(@areas)) %>
-  To <%= f.select(:destination, options_for_select(@areas)) %>
-  At  
-<div id="datepicker1" class="input-append date">
-    <input data-format="dd/MM/yyyy" type="text" id="resource_schedule_startdate" name="resource_schedule_startdate" size="20" style="width:80px"></input>
-    <span class="add-on">
-      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-      </i>
-    </span>
-  </div>
-<div id="timepicker1" class="input-append date">
-    <input data-format="hh:mm" type="text" id="resource_schedule_starttime" name="resource_schedule_starttime" style="width:90px"></input>
-    <span class="add-on">
-      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-      </i>
-    </span>
-  </div>
+  
+<% unless @resource_schedule %>
 
+    <% @areas = getAreas %>
 
-
-<input id="resource_schedule_isreadytohire" name="resource_schedule[isreadytohire]" type="checkbox" value="1"> Ready to Hire Cab? <input name="commit" type="submit" value="Search for Car">
+      From <%= f.select(:startplace, options_for_select(@areas)) %>
+      To <%= f.select(:destination, options_for_select(@areas)) %>
+      At  
+    <div id="datepicker1" class="input-append date">
+        <input data-format="dd/MM/yyyy" type="text" id="resource_schedule_startdate" name="resource_schedule_startdate" size="20" style="width:80px"></input>
+        <span class="add-on">
+          <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+          </i>
+        </span>
+      </div>
+      <div id="timepicker1" class="input-append date">
+        <input data-format="hh:mm" type="text" id="resource_schedule_starttime" name="resource_schedule_starttime" style="width:90px"></input>
+        <span class="add-on">
+          <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+          </i>
+        </span>
+      </div>
+      Ready to Hire Cab?  <input id="resource_schedule_isreadytohire" style="" name="resource_schedule[isreadytohire]" type="checkbox" value="1"> 
+<%else%>
+    From: <b><%= @resource_schedule.startplace %></b><br/>
+    To: <b><%= @resource_schedule.destination %></b><br/>
+    At: <b><%= @resource_schedule.starttime %></b><br/><br/>
 <% end %>
+
+
+
+
+
+<input name="commit" type="submit" value="Search for Car">
+<% end %>
+
 

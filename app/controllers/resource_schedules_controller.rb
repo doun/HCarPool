@@ -103,11 +103,13 @@ class ResourceSchedulesController < ApplicationController
   end
 
    def findcar
-	@resource_schedule = ResourceSchedule.new
+    if params[:resource_schedule_id]
+	     @resource_schedule = ResourceSchedule.find(params[:resource_schedule_id])
+     end
 
-	# TODO: Filter my Resource Schedules based on user id and date time
-	@myresource_schedules = ResourceSchedule.all
-	render 'findcar'
+	   # TODO: Filter my Resource Schedules based on user id and date time
+	   #@myresource_schedules = ResourceSchedule.all
+	   render 'findcar'
    end
 
   def findpass
