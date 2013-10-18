@@ -14,15 +14,15 @@ end
 
 
 
-  resources :homes do
-    get 'start', :on => :collection
-  end
+  resources :homes
 
   get '/findcar' => 'resource_schedules#findcar', :as => 'findcar' 
   post '/findcar' => 'resource_schedules#searchcar', :as => 'findcar'
 
   get '/findpassenger' => 'resource_schedules#findpass', :as => 'findpassenger' 
   post '/findpassenger' => 'resource_schedules#searchpass', :as => 'findpassenger'
+
+  get '/search' => 'resource_schedules#startsearch', :as => 'startsearch' 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

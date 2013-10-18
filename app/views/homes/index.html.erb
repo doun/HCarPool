@@ -58,7 +58,7 @@
         </p>
         <p>
             <% if user_signed_in? %> 
-              <%= link_to "Get started »", start_homes_path, class: "btn btn-primary btn-large active"%>
+              <%= link_to "Get started »", startsearch_path, class: "btn btn-primary btn-large active"%>
             <% else %> 
               <a class="btn btn-primary btn-large active" href="/users/auth/facebook"><i class="icon-facebook-sign"></i>  &nbsp;Login with Facebook to get started »</a>
              <% end %>

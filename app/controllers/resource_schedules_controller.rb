@@ -101,23 +101,26 @@ class ResourceSchedulesController < ApplicationController
       end
     end
   end
+def startsearch
+    respond_to do |format|
+      format.html
+    end
 
+  end
    def findcar
-    if params[:resource_schedule_id]
-	     @resource_schedule = ResourceSchedule.find(params[:resource_schedule_id])
-     end
-
-	   # TODO: Filter my Resource Schedules based on user id and date time
-	   #@myresource_schedules = ResourceSchedule.all
-	   render 'findcar'
-   end
-
-  def findpass
 	@resource_schedule = ResourceSchedule.new
 
 	# TODO: Filter my Resource Schedules based on user id and date time
 	@myresource_schedules = ResourceSchedule.all
-	render 'findpass'
+	render 'findcar'
+   end
+
+  def findpass
+  	@resource_schedule = ResourceSchedule.new
+
+  	# TODO: Filter my Resource Schedules based on user id and date time
+  	@myresource_schedules = ResourceSchedule.all
+  	render 'findpass'
    end
 
   # POST /resource_schedules
