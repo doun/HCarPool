@@ -10,8 +10,9 @@
       </ul>
     </div>
   <% end %>
-  From <input id="resource_schedule_startplace" name="resource_schedule[startplace]" size="30" style="width:100px" type="text">
-  To <input id="resource_schedule_destination" name="resource_schedule[destination]" size="30" style="width:100px" type="text">
+  <% @areas = getAreas %>
+  From <%= select_tag(:startplace, options_for_select(@areas)) %>
+  To <%= select_tag(:destination, options_for_select(@areas)) %>
   At  
 <div id="datepicker1" class="input-append date">
     <input data-format="dd/MM/yyyy" type="text" id="resource_schedule_startdate" name="resource_schedule_startdate" size="20" style="width:80px"></input>
@@ -27,6 +28,9 @@
       </i>
     </span>
   </div>
+
+  
+
 <input id="resource_schedule_isreadytohire" name="resource_schedule[isreadytohire]" type="checkbox" value="1"> Ready to Hire Cab? <input name="commit" type="submit" value="Search for Car">
 <% end %>
 
