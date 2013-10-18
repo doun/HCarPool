@@ -16,7 +16,6 @@ class User < ActiveRecord::Base
  		logger.info 'entering user auth********'
 		user = User.where(:email => access_token.info.email).first
 		#logger.info access_token.extra.raw_info.name
-		logger.info user.name
 	  	unless user
 	  		logger.info "Login success*********"
 	    	user = User.create(name:access_token.extra.raw_info.name,

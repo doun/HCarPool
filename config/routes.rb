@@ -23,6 +23,9 @@ end
   get '/findcar' => 'resource_schedules#findcar', :as => 'findcar' 
   post '/findcar' => 'resource_schedules#searchcar', :as => 'findcar'
 
+  get '/findpassenger' => 'resource_schedules#findpass', :as => 'findpassenger' 
+  post '/findpassenger' => 'resource_schedules#searchpass', :as => 'findpassenger'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

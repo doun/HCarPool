@@ -109,4 +109,31 @@ class ResourceSchedulesController < ApplicationController
 	render 'findcar'
    end
 
+  def findpass
+	@resource_schedule = ResourceSchedule.new
+
+	# TODO: Filter my Resource Schedules based on user id and date time
+	@myresource_schedules = ResourceSchedule.all
+	render 'findpass'
+   end
+
+  # POST /resource_schedules
+  # POST /resource_schedules.json
+  def searchpass
+    @resource_schedule = ResourceSchedule.new(params[:resource_schedule])
+    @resource_schedule.isowner = true
+    @resource_schedule.isconfirmed = true
+    @resource_schedule.ishireconfirmed = false
+    @resource_schedule.starttime = DateTime.parse(params[:resource_schedule_startdate].to_s + " " + params[:resource_schedule_starttime].to_s, "%d/%m/%Y %H-%M")
+
+    respond_to do |format|
+      if @resource_schedule.save
+        format.html { redirect_to @resource_schedule, notice: 'Resource schedule was successfully created.' }
+        format.json { render json: @resource_schedule, status: :created, location: @resource_schedule }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @resource_schedule.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 end
