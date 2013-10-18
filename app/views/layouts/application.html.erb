@@ -27,11 +27,10 @@
               <li><%= link_to current_user.name, root_path %></li>
               <li><%= link_to "Logout", destroy_user_session_path, method:'delete' %></li>
             <% else %> 
-              <li> <a href="/users/auth/facebook">Sign in with Facebook</a> </li>
+              <li> <p><a href="/users/auth/facebook" class="btn btn-primary btn-small active"><i class="icon-facebook-sign"></i> &nbsp;Login with Facebook</a></p> </li>
             <% end %>
-            <li><a href="#">Home</a></li>
+            <li><%= link_to "Search", start_homes_path%></li>
             <li><a href="#">How it Works</a></li>
-            <li><a href="#">Benefits</a></li>
           </ul>
 
         </div>  <!--end of container -->
