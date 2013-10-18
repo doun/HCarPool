@@ -33,63 +33,33 @@
         </span>
       </div>
       Ready to Hire Cab?  <input id="resource_schedule_isreadytohire" style="" name="resource_schedule[isreadytohire]" type="checkbox" value="1"> 
-<<<<<<< HEAD
-<%else%>
-=======
-  <%end%>
+<%end%>
 <% if 1==2  %>
->>>>>>> 1e6b0df9c498fdd5c99810d1c010506e093241a2
     From: <b><%= @resource_schedule.startplace %></b><br/>
     To: <b><%= @resource_schedule.destination %></b><br/>
     At: <b><%= @resource_schedule.starttime %></b><br/><br/>
 <% end %>
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 1e6b0df9c498fdd5c99810d1c010506e093241a2
 <input name="commit" type="submit" value="Search for Car">
 
 
   <table class="table">
     <tr>
-<<<<<<< HEAD
-      <th>Userresourceid</th>
-=======
->>>>>>> 1e6b0df9c498fdd5c99810d1c010506e093241a2
       <th>Userid</th>
       <th>Isowner</th>
       <th>Startplace</th>
       <th>Destination</th>
       <th>Starttime</th>
       <th>Routeno</th>
-<<<<<<< HEAD
-      <th>Available</th>
-      <th>Isconfirmed</th>
-      <th>Isreadytohire</th>
-=======
       <th>Seat Available</th>
       <th>Isconfirmed</th>
       <th>Ready to hire</th>
->>>>>>> 1e6b0df9c498fdd5c99810d1c010506e093241a2
       <th>Ishireconfirmed</th>
     </tr>
 
   <% @results.each do |r| %>
     <tr>
-<<<<<<< HEAD
-      <td><%= resource_schedule.userResourceId %></td>
-      <td><%= resource_schedule.userId %></td>
-      <td><%= resource_schedule.isowner %></td>
-      <td><%= resource_schedule.startplace %></td>
-      <td><%= resource_schedule.destination %></td>
-      <td><%= resource_schedule.starttime %></td>
-      <td><%= resource_schedule.routeno %></td>
-      <td><%= resource_schedule.available %></td>
-      <td><%= resource_schedule.isconfirmed %></td>
-      <td><%= resource_schedule.isreadytohire %></td>
-      <td><%= resource_schedule.ishireconfirmed %></td>
-=======
       <td><%= r.userId %></td>
       <td><%= r.isowner %></td>
       <td><%= r.startplace %></td>
@@ -100,7 +70,6 @@
       <td><%= r.isconfirmed %></td>
       <td><%= r.isreadytohire %></td>
       <td><%= r.ishireconfirmed %></td>
->>>>>>> 1e6b0df9c498fdd5c99810d1c010506e093241a2
     </tr>
   <% end %>
   </table>
