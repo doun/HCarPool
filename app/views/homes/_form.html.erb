@@ -1,0 +1,49 @@
+  Resource:
+  <%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+<%= f.fields_for :user_resources do |resource| %>
+    
+  <div class="control-group">
+    <label class="control-label" for="user_user_resources_attributes_acNonac">A/c or Non A/c</label>
+    <div class="controls">
+      <%= resource.check_box :acNonac, :class => 'check_box'%>
+    </div>
+  </div>
+    <div class="control-group">
+    <label class="control-label" for="user_user_resources_attributes_carModel">Preferred Car Model</label>
+        <div class="controls">
+      <%= resource.select :carModel, ['Indiga', 'Innova', 'Any'], :class => 'select'%>
+    </div>
+  </div>
+    <div class="control-group">
+    <label class="control-label" for="user_user_resources_attributes_maxCapacity">Preferred maximum capacity</label>
+        <div class="controls">
+      <%= resource.text_field :maxCapacity, :class => 'text_field'%>
+    </div>
+  </div>
+    <div class="control-group">
+    <label class="control-label" for="user_user_resources_attributes_carNumber">Car Number</label>
+        <div class="controls">
+      <%= resource.text_field :carNumber, :class => 'text_field'%>
+    </div>
+  </div>
+      <div class="control-group">
+    <label class="control-label" for="user_user_resources_attributes_driverName">Car Number</label>
+        <div class="controls">
+      <%= resource.text_field :driverName, :class => 'text_field'%>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="user_user_resources_attributes_isSelfDrive">Are you going to self drive the car?</label>
+    <div class="controls">
+      <%= resource.check_box :isSelfDrive, :class => 'check_box'%>
+    </div>
+  </div>
+    <div class="control-group">
+    <label class="control-label" for="user_user_resources_attributes_isOwned">Are you owner of the car?</label>
+    <div class="controls">
+      <%= resource.check_box :isOwned, :class => 'check_box'%>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
