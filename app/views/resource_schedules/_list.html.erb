@@ -1,2 +1,3 @@
-This is resource schedule list
-
+<% @myresource_schedules.each do |resource_schedule| %>
+	<%= resource_schedule.startplace %> - <%= resource_schedule.destination %> at <%= resource_schedule.starttime %><br>
+<% end %>

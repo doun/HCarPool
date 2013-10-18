@@ -88,6 +88,7 @@ class ResourceSchedulesController < ApplicationController
     @resource_schedule.isowner = false
     @resource_schedule.isconfirmed = false
     @resource_schedule.ishireconfirmed = false
+    @resource_schedule.starttime = DateTime.parse(params[:resource_schedule_startdate].to_s + " " + params[:resource_schedule_starttime].to_s, "%d/%m/%Y %H-%M")
 
     respond_to do |format|
       if @resource_schedule.save
@@ -102,6 +103,9 @@ class ResourceSchedulesController < ApplicationController
 
    def findcar
 	@resource_schedule = ResourceSchedule.new
+
+	# TODO: Filter my Resource Schedules based on user id and date time
+	@myresource_schedules = ResourceSchedule.all
 	render 'findcar'
    end
 
