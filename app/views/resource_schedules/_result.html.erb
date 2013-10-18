@@ -33,43 +33,43 @@
         </span>
       </div>
       Ready to Hire Cab?  <input id="resource_schedule_isreadytohire" style="" name="resource_schedule[isreadytohire]" type="checkbox" value="1"> 
-<%else%>
+  <%end%>
+<% if 1==2  %>
     From: <b><%= @resource_schedule.startplace %></b><br/>
     To: <b><%= @resource_schedule.destination %></b><br/>
     At: <b><%= @resource_schedule.starttime %></b><br/><br/>
 <% end %>
+
 
 <input name="commit" type="submit" value="Search for Car">
 
 
   <table class="table">
     <tr>
-      <th>Userresourceid</th>
       <th>Userid</th>
       <th>Isowner</th>
       <th>Startplace</th>
       <th>Destination</th>
       <th>Starttime</th>
       <th>Routeno</th>
-      <th>Available</th>
+      <th>Seat Available</th>
       <th>Isconfirmed</th>
-      <th>Isreadytohire</th>
+      <th>Ready to hire</th>
       <th>Ishireconfirmed</th>
     </tr>
 
   <% @results.each do |r| %>
     <tr>
-      <td><%= resource_schedule.userResourceId %></td>
-      <td><%= resource_schedule.userId %></td>
-      <td><%= resource_schedule.isowner %></td>
-      <td><%= resource_schedule.startplace %></td>
-      <td><%= resource_schedule.destination %></td>
-      <td><%= resource_schedule.starttime %></td>
-      <td><%= resource_schedule.routeno %></td>
-      <td><%= resource_schedule.available %></td>
-      <td><%= resource_schedule.isconfirmed %></td>
-      <td><%= resource_schedule.isreadytohire %></td>
-      <td><%= resource_schedule.ishireconfirmed %></td>
+      <td><%= r.userId %></td>
+      <td><%= r.isowner %></td>
+      <td><%= r.startplace %></td>
+      <td><%= r.destination %></td>
+      <td><%= r.starttime %></td>
+      <td><%= r.routeno %></td>
+      <td><%= r.available %></td>
+      <td><%= r.isconfirmed %></td>
+      <td><%= r.isreadytohire %></td>
+      <td><%= r.ishireconfirmed %></td>
     </tr>
   <% end %>
   </table>

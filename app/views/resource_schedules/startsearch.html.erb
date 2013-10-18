@@ -1,3 +1,4 @@
+<br/>
 <div class="row-fluid">
 	<div class="span12">
 		<h3>
@@ -5,23 +6,28 @@
 		</h3>
 	</div>
 </div>
+<br/>
 <div class="row-fluid" style="display:inline-block; vertical-align: middle">
     <div class="span4">
         <div class="well text-center">
-    	   <a href="/search/q=fc" class="btn btn-primary btn-large active"><i class="icon-white icon-plane"></i> Find Cars</a>
+    	   <a href="/search?q=fc" class="btn btn-primary btn-large active"><i class="icon-white icon-plane"></i> Find Cars</a>
         </div>
     </div>
     <div class="span4">
         <div class="well text-center">
-        	<a href="/search/q=fp" class="btn btn-success btn-large  active"><i class="icon-white icon-user"></i> Find Passengers</a>
+        	<a href="/search?q=fp" class="btn btn-success btn-large  active"><i class="icon-white icon-user"></i> Find Passengers</a>
         </div>
     </div>
     <div class="span4">
         <div class="well text-center">
-        	<a href="/search/q=gh" class="btn btn-warning btn-large  active"><i class="icon-white icon-user"></i> Group Hire a Car</a>
+        	<a href="/search?q=gh" class="btn btn-warning btn-large  active"><i class="icon-white icon-user"></i> Group Hire a Car</a>
         </div>
     </div>
 </div>
+<br/><br/><br/>
+<%= render :partial => 'search' %><br/><br/>
+
+<div id="search_div">
 <%= render :partial => 'list' %>
-<%= render :partial => 'search' %>
+</div>
 

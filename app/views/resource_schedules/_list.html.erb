@@ -1,3 +1,19 @@
+
+<h3>My schedules</h3>
+
+<table class="table">
+<tr>
+<th>From</th>
+<th>To</th>
+<th>When</th>
+</tr>
 <% @myresource_schedules.each do |resource_schedule| %>
-	<%= resource_schedule.startplace %> - <%= resource_schedule.destination %> at <%= resource_schedule.starttime %><br>
+<tr>
+	<td> <%= resource_schedule.startplace %> </td>
+	<td> <%= resource_schedule.destination %> </td>
+	<td> <%= resource_schedule.starttime %> </td> 
+	<td> <%= link_to image_tag("search_icon.jpg"), find_path, :remote => true %></td> 
+	<br> 
+</tr>
 <% end %>
+</div>
