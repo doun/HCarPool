@@ -6,7 +6,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body style="padding-top:40px">
+<body style="padding-top:80px">
     <!--[if lt IE 7]>
         <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -20,16 +20,16 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="/" title="Carpooling done the right way">
-            <img src="/assets/logo.jpg" alt="RideShare Logo" title="RideShare Logo" height="55px" width="155"/>
+            <img src="/assets/logo_Header.png" alt="RideShare Logo" title="RideShare Logo" style="height:45px"/>
           </a>
           <ul class="nav pull-right">
             <% if user_signed_in? %> 
               
-              <li><%= image_tag(current_user.image_url) %></li>
+              <li><%= image_tag(current_user.image_url, :height=>35, :width=>35) %></li>
               <li><%= link_to current_user.name, home_register_path(current_user) %></li>
               <li><%= link_to "Logout", destroy_user_session_path, method:'delete' %></li>
             <% else %> 
-              <li> <p><a href="/users/auth/facebook" class="btn btn-primary btn-small active"><i class="icon-facebook-sign"></i> &nbsp;Login with Facebook</a></p> </li>
+              <li> <p><a href="/users/auth/facebook" class="btn btn-primary btn-small active" ><i class="icon-facebook-sign"></i> &nbsp;Login with Facebook</a></p> </li>
             <% end %>
             <li><%= link_to "Search", startsearch_path%></li>
             <li><a href="#">How it Works</a></li>
