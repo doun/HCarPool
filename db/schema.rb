@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131018122044) do
+ActiveRecord::Schema.define(:version => 20131018134509) do
 
   create_table "homes", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20131018122044) do
     t.datetime "locked_at"
     t.string   "unlock_token"
     t.integer  "failed_attempts"
+    t.string   "image_url"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
