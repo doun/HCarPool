@@ -10,6 +10,16 @@ class ResourceSchedulesController < ApplicationController
     end
   end
 
+  def find
+    @resource_schedule = ResourceSchedule.new
+
+    @results = ResourceSchedule.all
+    
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # GET /resource_schedules/1
   # GET /resource_schedules/1.json
   def show
@@ -114,18 +124,12 @@ class ResourceSchedulesController < ApplicationController
     else
     end
 
-    respond_to do |format|
-      format.html
-    end
+   def findcar
+	@resource_schedule = ResourceSchedule.new
 
-  end
-
-  def findcar
-  	@resource_schedule = ResourceSchedule.new
-
-  	# TODO: Filter my Resource Schedules based on user id and date time
-  	@myresource_schedules = ResourceSchedule.all
-  	render 'findcar'
+	# TODO: Filter my Resource Schedules based on user id and date time
+	@myresource_schedules = ResourceSchedule.all
+	render 'findcar'
    end
 
   def findpass
