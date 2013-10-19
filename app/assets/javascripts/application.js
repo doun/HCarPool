@@ -27,12 +27,14 @@ $(function() {
     $('#timepicker1').datetimepicker({
       language: 'en',
       pickDate: false,
-      pickSeconds: true
+      pick12HourFormat:true,
+      pickSeconds: false
     });
     $('#timepicker2').datetimepicker({
       language: 'en',
       pickDate: false,
-      pickSeconds: true
+      pick12HourFormat:true,
+      pickSeconds: false
     });
 });
 
