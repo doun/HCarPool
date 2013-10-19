@@ -100,6 +100,7 @@ class ResourceSchedulesController < ApplicationController
   def searchcar
     @resource_schedule = ResourceSchedule.new(params[:resource_schedule])
     logger.info params
+    @resource_schedule.userId = current_user.id
     @resource_schedule.startplace = params[:startplace]
     @resource_schedule.destination = params[:destination]
     @resource_schedule.isowner = false
