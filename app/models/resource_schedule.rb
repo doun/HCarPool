@@ -16,7 +16,7 @@ class ResourceSchedule < ActiveRecord::Base
   end
 
   def self.searchuser iduser, ispas
-  	if ispas == "1"
+  	if ispas == "0"
   		results = ResourceSchedule.where(isowner: false).where(userId: iduser)
   	else
   		results = ResourceSchedule.where(isowner: true).where(userId: iduser)
