@@ -8,8 +8,9 @@ Hackathon13Carpool::Application.routes.draw do
   resources :resource_schedules
 
 resources :users do
+   get 'addResource'
+
    resources :user_resources do
-      put 'updateuser'
    end
    resources :preferences
 end
@@ -18,7 +19,7 @@ end
 
   resources :homes do
     get 'register'
-    get 'addResource'
+
     get 'start', :on => :collection
     
   end

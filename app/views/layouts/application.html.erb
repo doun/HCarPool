@@ -27,7 +27,7 @@
               <li><%= image_tag(current_user.image_url, :height=>35, :width=>35) %></li>
               <li class="dropdown pull-right"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><%=current_user.name%><strong class="caret"></strong></a>
                 <ul class="dropdown-menu">
-                  <li><%= link_to "Preferences", home_register_path(current_user) %></li>
+                  <li><%= link_to "Preferences", user_preferences_path(current_user) %></li>
                   <li><%= link_to "Logout", destroy_user_session_path, method:'delete' %></li>
                 </ul>
               </li>

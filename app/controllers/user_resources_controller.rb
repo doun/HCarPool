@@ -1,13 +1,12 @@
 class UserResourcesController < ApplicationController
   # GET /user_resources
   # GET /user_resources.json
-  def index
-    @user_resources = UserResource.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @user_resources }
-    end
+    before_filter :get_user
+
+  def get_user
+    logger.info params
+    @user = User.find(params[:user_id])
   end
 
   # GET /user_resources/1
@@ -24,7 +23,7 @@ class UserResourcesController < ApplicationController
   # GET /user_resources/new
   # GET /user_resources/new.json
   def new
-    @user_resource = UserResource.new
+    @user_resource = @user.user_resource.new()
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,11 +39,11 @@ class UserResourcesController < ApplicationController
   # POST /user_resources
   # POST /user_resources.json
   def create
-    @user_resource = UserResource.new(params[:user_resource])
+    @user_resource = @user.user_resource.new(params[:user_resource])
 
     respond_to do |format|
       if @user_resource.save
-        format.html { redirect_to @user_resource, notice: 'User resource was successfully created.' }
+        format.html { redirect_to user_preferences_path(@user), notice: 'User resource was successfully created.' }
         format.json { render json: @user_resource, status: :created, location: @user_resource }
       else
         format.html { render action: "new" }

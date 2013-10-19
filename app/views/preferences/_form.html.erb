@@ -1,56 +1,92 @@
-<%= form_for @preference, :html => { :class => 'form-horizontal' } do |f| %>
+<div class="page-header">
+  <h1>Registration form</h1>
+  <% @areas = getAreas %>
+
+  <%= form_for @preference, :url => user_preferences_path(@preference.user, @preference), :html => { :class => 'form-horizontal' } do |builder| %>
   <div class="control-group">
-    <%= f.label :user_id_id, :class => 'control-label' %>
+    <label class="control-label" for="name">Name</label>
     <div class="controls">
-      <%= f.number_field :user_id_id, :class => 'number_field' %>
+      <input class="text_field" id="name" name="name" size="30" type="text" value ="<%=current_user.name%>">
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :copassangerGender, :class => 'control-label' %>
+        <label class="control-label" for="email">Email</label>
     <div class="controls">
-      <%= f.text_field :copassangerGender, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :acNonac, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.check_box :acNonac, :class => 'check_box' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :carModel, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :carModel, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :maxCapacity, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :maxCapacity, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :from, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :from, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :to, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :to, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :startTime, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.time_select :startTime, :class => 'time_select' %>
+      <input class="text_field" id="email" name="email" size="30" type="text" value ="<%=current_user.email%>">
     </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
+  <h3>Preferences</h3>
+  
+  <div class="control-group">
+    <label class="control-label" for="user_preference_attributes_acNonac">A/c</label>
+    <div class="controls">
+      <%= builder.check_box :acNonac, :class => 'check_box'%>
+    </div>
+  </div>
+    <div class="control-group">
+    <label class="control-label" for="user_preference_attributes_carModel">Preferred Car Model</label>
+        <div class="controls">
+      <%= builder.select :carModel, ['Indiga', 'Innova', 'Any'], :class => 'select'%>
+    </div>
+  </div>
+    <div class="control-group">
+    <label class="control-label" for="user_preference_attributes_copassangerGender">Co-passanger</label>
+        <div class="controls">
+      <%= builder.select :copassangerGender, ['Male', 'Female', 'Any'], :class => 'select'%>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="user_preference_attributes_maxCapacity">Preferred maximum capacity</label>
+        <div class="controls">
+      <%= builder.text_field :maxCapacity, :class => 'text_field'%>
+    </div>
+  </div>
+    <div class="control-group">
+    <label class="control-label" for="user_preference_attributes_from">Starting Location</label>
+        <div class="controls">
+      <%= builder.select(:from, options_for_select(@areas)) %>
+    </div>
+  </div>
+
+    <div class="control-group">
+    <label class="control-label" for="user_preference_attributes_to">Destination location</label>
+              <div class="controls">
+      <%= builder.select(:to, options_for_select(@areas)) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="user_preference_attributes_startTime">Start Time</label>
+    <div class="controls">
+    <div class="input-append time" id="timepicker1">
+    <input id="preference_startTime" data-format="hh:mm:ss" type="text"</input>
+    <span class="add-on">
+      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+      </i>
+    </span></div>
+    </div>
+  </div>
+
+<script type="text/javascript">
+  $(function() {
+    $('#datetimepicker3').datetimepicker({
+      pickDate: false
+    });
+  });
+</script>
+
+
+      <div class="form-actions">
+    <%= builder.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                preferences_path, :class => 'btn' %>
+                root_path, :class => 'btn' %>
   </div>
 <% end %>
+
+  <h3>Do you own a car? Add your car details here. </h3>
+   <%= link_to " Resource", user_addResource_path(@preference.user), :class => " icon-white icon-plus-sign btn btn-success btn-small" , remote: true%>
+   
+  <div id='resourceList'>
+
+  </div>
+</div>

@@ -51,11 +51,12 @@ function searchFired(){
 
   var start = $("#startplace option:selected").val();
   var dest = $("#destination option:selected").val();
+  var ispas = $('#isPassenger').val();
 
   $.ajax({
     url: "/find",
     type: "POST",
-    data: {start:start, dest:dest },
+    data: {start:start, dest:dest, ispas:ispas },
     success: function(data) {
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) { 
