@@ -7,4 +7,4 @@ Hackathon13Carpool::Application.initialize!
 
 ENV['SSL_CERT_FILE'] = 'C:/RailsInstaller/cacert.pem'
 
-Rails.env = "development"
+Rails.env = "production"
