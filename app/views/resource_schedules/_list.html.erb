@@ -15,7 +15,7 @@
 		<td> <%= resource_schedule.startplace %> </td>
 		<td> <%= resource_schedule.destination %> </td>
 		<td> <%= resource_schedule.starttime %> </td> 
-		<td> <%= link_to image_tag("search_icon.jpg"), find_path, :remote => true %></td> 
+		<td> <%= link_to image_tag("search_icon.jpg"), startsearch_path(:listid => resource_schedule.id, :q => params[:q])%></td> 
 	</tr>
 	<% end %>
 </div>
