@@ -8,22 +8,18 @@
 </div>
 <br/>
 <div class="row-fluid" style="display:inline-block; vertical-align: middle">
-    <div class="span4">
-        <div class="text-center" style="padding:5px">
+    <div class="span12">
+        <span style="padding:5px">
     	   <a href="/search?q=fc" class="btn btn-primary btn-large active"><img src="/assets/icon_HireACar.png"> Find Cars</a>
-        </div>
+        </span>
+        <span style="padding:5px">
+            <a href="/search?q=fp" class="btn btn-large  btn-success active"><img src="/assets/icon_HirePassenger.png"> Find Passengers</a>
+        </span>
+        <span style="padding:5px">
+            <a href="/search?q=gh" class="btn btn-large  btn-warning active"><img src="/assets/icon_GroupHire.png"> Group Hire a Car</a>
+        </span>
     </div>
-    <div class="span4">
-        <div class="text-center" style="padding:10px">
-        	<a href="/search?q=fp" class="btn btn-large  btn-success active"><img src="/assets/icon_HirePassenger.png"> Find Passengers</a>
-        </div>
-    </div>
-    <div class="span4">
-        <div class="text-center" style="padding:10px">
-        	<a href="/search?q=gh" class="btn btn-large  btn-warning active"><img src="/assets/icon_GroupHire.png"> Group Hire a Car</a>
-        </div>
-    </div>
-</div>
+ </div>
 <br/><br/><br/>
 <% if @searchcriteria == "car" %>
 	<%= render :partial => 'search' %>
