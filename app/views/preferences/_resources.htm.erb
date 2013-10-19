@@ -1,0 +1,40 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:acNonac) %></th>
+      <th><%= model_class.human_attribute_name(:carModel) %></th>
+      <th><%= model_class.human_attribute_name(:maxCapacity) %></th>
+      <th><%= model_class.human_attribute_name(:imageUrl) %></th>
+      <th><%= model_class.human_attribute_name(:carNumber) %></th>
+      <th><%= model_class.human_attribute_name(:isOwned) %></th>
+      <th><%= model_class.human_attribute_name(:driverName) %></th>
+      <th><%= model_class.human_attribute_name(:isSelfDrive) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.user_resource.each do |user_resource| %>
+      <tr>
+        <td><%= user_resource.acNonac %></td>
+        <td><%= user_resource.carModel %></td>
+        <td><%= user_resource.maxCapacity %></td>
+        <td><%= user_resource.imageUrl %></td>
+        <td><%= user_resource.carNumber %></td>
+        <td><%= user_resource.isOwned %></td>
+        <td><%= user_resource.driverName %></td>
+        <td><%= user_resource.isSelfDrive %></td>
+        <td><%=l user_resource.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_user_resource_path(user_resource), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      user_resource_path(user_resource),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -2,7 +2,6 @@ class Preference < ActiveRecord::Base
   belongs_to :user
   attr_accessible :acNonac, :carModel, :copassangerGender, :from, :maxCapacity, :startTime, :to
 
-  validates :acNonac, presence: true
   validates :from, presence: true
   validates :to, presence: true
   validates :startTime, presence: true

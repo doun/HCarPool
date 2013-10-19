@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  requester: 
+  requestfor: 
+  isConfirmed: false
+  requesttype: MyString
+
+two:
+  requester: 
+  requestfor: 
+  isConfirmed: false
+  requesttype: MyString
