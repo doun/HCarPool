@@ -5,7 +5,6 @@ class UserResourcesController < ApplicationController
     before_filter :get_user
 
   def get_user
-    logger.info params
     @user = User.find(params[:user_id])
   end
 
@@ -59,7 +58,7 @@ class UserResourcesController < ApplicationController
 
     respond_to do |format|
       if @user_resource.update_attributes(params[:user_resource])
-        format.html { redirect_to @user_resource, notice: 'User resource was successfully updated.' }
+        format.html { redirect_to user_preferences_path(@user), notice: 'User resource was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -75,7 +74,7 @@ class UserResourcesController < ApplicationController
     @user_resource.destroy
 
     respond_to do |format|
-      format.html { redirect_to user_resources_url }
+      format.html { redirect_to user_preferences_path(@user) }
       format.json { head :no_content }
     end
   end

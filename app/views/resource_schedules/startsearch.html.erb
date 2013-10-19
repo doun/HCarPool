@@ -69,6 +69,10 @@
 
 
 <div id="search_div">
-<%= render :partial => 'list' %>
+<% if @display == "empty" %>
+	<%= render :partial => 'list' %>
+<% else %>
+	<%= render :partial => 'result' %>
+<% end %>
 </div>
 

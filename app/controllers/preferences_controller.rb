@@ -13,15 +13,13 @@ class PreferencesController < ApplicationController
   def index
     @preference = @user.preference
 
-
-
     respond_to do |format|
     if @preference.nil?
       @preference = @user.build_preference()
       format.html { redirect_to new_user_preference_path(@user, @preference), notice: 'Preference was successfully created.' }
     
   else
-      format.html { redirect_to user_preference_path(@user, @preference), notice: 'Preference was successfully created.' }
+      format.html { redirect_to edit_user_preference_path(@user, @preference), notice: 'Preference was successfully created.' }
     end
       format.json { render json: @preference }
     end
@@ -43,6 +41,7 @@ class PreferencesController < ApplicationController
   # GET /preferences/new.json
   def new
     @preference = @user.build_preference()
+
     @resources = @user.user_resource
 
     respond_to do |format|
@@ -60,10 +59,10 @@ class PreferencesController < ApplicationController
   # POST /preferences.json
   def create
     @preference = @user.create_preference(params[:preference])
-
+  logger.info @preference
     respond_to do |format|
       if @preference.save
-        format.html { redirect_to user_preference_path(@user, @preference), notice: 'Preference was successfully created.' }
+        format.html { redirect_to user_preferences_path(@user), notice: 'Preference was successfully created.' }
         format.json { render json: @preference, status: :created, location: @preference }
       else
         format.html { render action: "new" }
@@ -79,7 +78,7 @@ class PreferencesController < ApplicationController
 
     respond_to do |format|
       if @preference.update_attributes(params[:preference])
-        format.html { redirect_to @preference, notice: 'Preference was successfully updated.' }
+        format.html { redirect_to user_preferences_path(@user), notice: 'Preference was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
