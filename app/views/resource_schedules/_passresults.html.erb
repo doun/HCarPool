@@ -12,6 +12,7 @@
       
       <th>Seat(s) Available</th>
       <th>Ready to hire</th>
+      <th></th>
     </tr>
 
   <% @results.each do |r| %>
@@ -35,6 +36,7 @@
       <%else%>
         <td>No</td>
       <%end%>
+      <td><a href="#" class="btn btn-danger"><i class="icon-white icon-play"></i> Request</a></td>
     </tr>
   <% end %>
   </table>

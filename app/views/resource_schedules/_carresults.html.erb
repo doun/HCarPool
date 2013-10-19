@@ -11,6 +11,7 @@
       <th>Start Time</th>
       
       <th>Seat(s) Available</th>
+      <th></th>      
     </tr>
 
   <% @results.each do |r| %>
@@ -29,6 +30,7 @@
       <td><%= r.destination %></td>
       <td><%= r.starttime %></td>
       <td><%= r.available %></td>
+      <td><a href="#" class="btn btn-danger"><i class="icon-white icon-play"></i> Request</a></td>      
     </tr>
   <% end %>
   </table>
