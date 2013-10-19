@@ -25,7 +25,7 @@
     </div>
   </div>
     <div class="control-group">
-    <label class="control-label" for="user_preference_attributes_carModel">Preferred Car Model</label>
+    <label class="control-label" for="user_preference_attributes_carModel">Choose your preferred Car</label>
         <div class="controls">
       <%= builder.select :carModel, ['Indiga', 'Innova', 'Any'], :class => 'select'%>
     </div>
@@ -37,7 +37,7 @@
     </div>
   </div>
   <div class="control-group">
-    <label class="control-label" for="user_preference_attributes_maxCapacity">Preferred maximum capacity</label>
+    <label class="control-label" for="user_preference_attributes_maxCapacity">Choose your preferred maximum capacity</label>
         <div class="controls">
       <%= builder.text_field :maxCapacity, :class => 'text_field'%>
     </div>
@@ -60,11 +60,11 @@
     <div class="controls">
     <div class="input-append time" id="timepicker1" data-format="hh:mm">
 
-    <%= builder.text_field  :startTime, "data-format" => "hh:mm", :value => @preference.startTime.nil? ? Time.now.strftime("%H:%M") :  @preference.startTime.strftime("%H:%M") , :class => 'text_field' %>
+    <%= builder.text_field  :startTime, "data-format" => "hh:mm", :value => @preference.startTime.nil? ? Time.now.strftime("%H:%M") :  @preference.startTime.strftime("%H:%M") , :style => "width:80px", :class => 'text_field' %>
         
 
     <span class="add-on">
-      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+      <i data-time-icon="icon-time" data-date-icon="icon-calendar" >
       </i>
     </span>
   </div>
@@ -79,9 +79,8 @@
 <% end %>
 
   <h3>Do you own a car? Add your car details here. </h3>
-   <%= link_to " Resource", user_addResource_path(@preference.user), :class => " icon-white icon-plus-sign btn btn-success btn-small" , remote: true%>
+   <%= link_to " Resource", user_addResource_path(@preference.user), :class => " icon-white icon-plus-sign btn btn-success btn-small active" , remote: true%>
    
-  <div id='resourceList'>
     <% if @user.user_resource.blank? == false %>
     <table class="table table-striped">
   <thead>
@@ -118,5 +117,6 @@
                       :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr><%end%>
+  <div id='resourceList'>
   </div>
 </div>
