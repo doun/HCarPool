@@ -5,25 +5,27 @@
   <table class="table">
     <tr>
       <th>Name</th>
-      <th>Isowner</th>
-      <th>Startplace</th>
-      <th>Destination</th>
-      <th>Starttime</th>
+<!--       <th>Isowner</th>
+ -->
+      <th>From</th>
+      <th>To</th>
+      <th>Start Time</th>
       
-      <th>Seat Available</th>
+      <th>Seat(s) Available</th>
       <th>Ready to hire</th>
     </tr>
 
   <% @results.each do |r| %>
     <tr>
       <td><%= r.userId %></td>
-      <td>
+<!--       <td>
         <% if r.isowner == 0 %>
           <%= image_tag("Close-2-icon.png") %>
         <%else%>
           <%= image_tag("Ok-icon.png") %>
         <%end%>
       </td>
+ -->
       <td><%= r.startplace %></td>
       <td><%= r.destination %></td>
       <td><%= r.starttime %></td>
