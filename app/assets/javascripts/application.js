@@ -15,6 +15,13 @@
 //= require twitter/bootstrap
 //= require_tree .
 //
+$(document).ready(function(){
+
+  $('#mySchedules_header').click(function(){
+        $('#mySchedules').slideToggle('slow', function(){});});
+
+      });
+
 $(function() {
     $('#datepicker1').datetimepicker({
       language: 'en',
@@ -36,6 +43,8 @@ $(function() {
       pick12HourFormat:true,
       pickSeconds: false
     });
+
+    
 });
 
 function searchFired(){

@@ -38,6 +38,8 @@
 
 <% if @results.count > 0 %>
 
+<h4><%= @results.count %> Matches Found</h4> <br/>
+
   <table class="table">
     <tr>
       <th>Name</th>
@@ -45,25 +47,26 @@
       <th>Startplace</th>
       <th>Destination</th>
       <th>Starttime</th>
-      <th>Routeno</th>
+      
       <th>Seat Available</th>
-      <th>Isconfirmed</th>
       <th>Ready to hire</th>
-      <th>Ishireconfirmed</th>
     </tr>
 
   <% @results.each do |r| %>
     <tr>
       <td><%= r.userId %></td>
-      <td><%= r.isowner %></td>
+      <td>
+        <% if r.isowner == 0 %>
+          <%= image_tag("Close-2-icon.png") %>
+        <%else%>
+          <%= image_tag("Ok-icon.png") %>
+        <%end%>
+      </td>
       <td><%= r.startplace %></td>
       <td><%= r.destination %></td>
       <td><%= r.starttime %></td>
-      <td><%= r.routeno %></td>
       <td><%= r.available %></td>
-      <td><%= r.isconfirmed %></td>
       <td><%= r.isreadytohire %></td>
-      <td><%= r.ishireconfirmed %></td>
     </tr>
   <% end %>
   </table>
@@ -72,9 +75,6 @@
 <% end %>
 
 
-<input name="commit" class="pull right" type="submit" value="Add to listing">
 
-
-<% end %>
 
 
