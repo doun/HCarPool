@@ -1,0 +1,36 @@
+<h4><%= @results.count %> Match(es) Found</h4> <br/>
+
+  <table class="table">
+    <tr>
+      <th>&nbsp;</th>
+      <th>Name</th>
+<!--       <th>Isowner</th>
+ -->
+      <th>From</th>
+      <th>To</th>
+      <th>Start Time</th>
+      
+      <th>Seat(s) Available</th>
+    </tr>
+
+  <% @results.each do |r| %>
+    <tr>
+      <td><%= image_tag(r.user.image_url, :height=>35, :width=>35) %></td>
+      <td><%= r.user.name %></td>
+<!--       <td>
+        <% if r.isowner == 0 %>
+          <%= image_tag("Close-2-icon.png") %>
+        <%else%>
+          <%= image_tag("Ok-icon.png") %>
+        <%end%>
+      </td>
+ -->
+      <td><%= r.startplace %></td>
+      <td><%= r.destination %></td>
+      <td><%= r.starttime %></td>
+      <td><%= r.available %></td>
+    </tr>
+  <% end %>
+  </table>
+
+
