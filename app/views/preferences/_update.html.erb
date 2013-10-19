@@ -19,7 +19,7 @@
   <h3>Preferences</h3>
   
   <div class="control-group">
-    <label class="control-label" for="user_preference_attributes_acNonac">Is it a A/c car?</label>
+    <label class="control-label" for="user_preference_attributes_acNonac">A/c</label>
     <div class="controls">
       <%= builder.check_box :acNonac, :class => 'check_box'%>
     </div>
@@ -60,7 +60,7 @@
     <div class="controls">
     <div class="input-append time" id="timepicker1" data-format="hh:mm">
 
-    <%= builder.text_field  :startTime, "data-format" => "hh:mm", :value => @preference.startTime.nil? ? Time.now.strftime("%H:%M") :  @preference.startTime.strftime("%H:%M") , :class => 'text_field' %>
+    <%= builder.text_field  :startTime, "data-format" => "hh:mm", :value => @preference.startTime.nil? ? Time.now.strftime("%H:%M") :  @preference.startTime.strftime("%H:%M") , :style => "width:80px", :class => 'text_field' %>
         
 
     <span class="add-on">
@@ -79,10 +79,8 @@
 <% end %>
 
   <h3>Do you own a car? Add your car details here. </h3>
-   <%= link_to " Resource", user_addResource_path(@preference.user), :class => " icon-white icon-plus-sign btn btn-success btn-small" , remote: true%>
+   <%= link_to " Resource", user_addResource_path(@preference.user), :class => " icon-white icon-plus-sign btn btn-success btn-small  active" , remote: true%>
    
-  <div id='resourceList'>
-
     <% if @user.user_resource.blank? == false %>
     <table class="table table-striped">
   <thead>
@@ -119,5 +117,6 @@
                       :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr><%end%>
+    <div id='resourceList'>
   </div>
 </div>
