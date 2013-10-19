@@ -171,7 +171,7 @@ class ResourceSchedulesController < ApplicationController
     # TODO: Save this and search for passengers
     respond_to do |format|
       if @resource_schedule.save
-        format.html { redirect_to startsearch_path, notice: 'Listing has been successfully added.' }
+        format.html { redirect_to "/search?q=fp", notice: 'Listing has been successfully added.' }
         format.json { render json: startsearch_path, status: :created, location: @resource_schedule }
       else
         format.html { redirect_to startsearch_path, notice: 'Listing has not been added.'  }
