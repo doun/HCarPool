@@ -28,9 +28,42 @@
  </div>
 <br/><br/><br/>
 <% if @searchcriteria == "car" %>
+
+    <div class="row-fluid" style="display:inline-block; vertical-align: middle">
+        <div class="span12">
+            <div class="page-header">
+                    <h1>
+                        <small>Find cars for your commute</small>
+                    </h1>
+            </div>
+        </div>
+    </div>    
+
 	<%= render :partial => 'search' %>
-<% else %>
+
+<% elsif @searchcriteria == "pass" %>
+
+    <div class="row-fluid" style="display:inline-block; vertical-align: middle">
+        <div class="span12">
+            <div class="page-header">
+                    <h1>
+                        <small>Find passengers to accompany you in your commute</small>
+                    </h1>
+            </div>
+        </div>
+    </div>    
 	<%= render :partial => 'passsearch' %>
+<% else%>
+    <div class="row-fluid" style="display:inline-block; vertical-align: middle">
+        <div class="span12">
+            <div class="page-header">
+                    <h1>
+                        <small>Find other passengers who do not have a car and hire a car together.</small>
+                    </h1>
+            </div>
+        </div>
+    </div>    
+    <%= render :partial => 'passsearch' %>
 <% end %> 	
 	<br/><br/>
 

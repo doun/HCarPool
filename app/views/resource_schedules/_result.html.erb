@@ -1,9 +1,10 @@
 <% if @results.count > 0 %>
 
-<h4><%= @results.count %> Matches Found</h4> <br/>
+<h4><%= @results.count %> Matche(s) Found</h4> <br/>
 
   <table class="table">
     <tr>
+      <th>&nbsp;</th>
       <th>Name</th>
 <!--       <th>Isowner</th>
  -->
@@ -17,7 +18,8 @@
 
   <% @results.each do |r| %>
     <tr>
-      <td><%= r.userId %></td>
+      <td><%= image_tag(r.user.image_url, :height=>35, :width=>35) %></td>
+      <td><%= r.user.name %></td>
 <!--       <td>
         <% if r.isowner == 0 %>
           <%= image_tag("Close-2-icon.png") %>
@@ -30,7 +32,11 @@
       <td><%= r.destination %></td>
       <td><%= r.starttime %></td>
       <td><%= r.available %></td>
-      <td><%= r.isreadytohire %></td>
+      <% if r.isreadytohire == true %>
+        <td>Yes</td>
+      <%else%>
+        <td>No</td>
+      <%end%>
     </tr>
   <% end %>
   </table>
