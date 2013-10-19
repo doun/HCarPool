@@ -1,3 +1,41 @@
+<%= form_for(@resource_schedule, url: findcar_path) do |f| %>
+  <% if @resource_schedule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@resource_schedule.errors.count, "error") %> prohibited this resource_schedule from being saved:</h2>
+
+      <ul>
+      <% @resource_schedule.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<% unless @resource_schedule %>
+
+    <% @areas = getAreas %>
+
+      From <%= f.select(:startplace, options_for_select(@areas)) %>
+      To <%= f.select(:destination, options_for_select(@areas)) %>
+      At  
+      <div id="datepicker1" class="input-append date">
+        <input data-format="dd/MM/yyyy" type="text" id="resource_schedule_startdate" name="resource_schedule_startdate" size="20" style="width:80px"></input>
+        <span class="add-on">
+          <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+          </i>
+        </span>
+      </div>
+      <div id="timepicker1" class="input-append date">
+        <input data-format="hh:mm" type="text" id="resource_schedule_starttime" name="resource_schedule_starttime" style="width:90px"></input>
+        <span class="add-on">
+          <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+          </i>
+        </span>
+      </div>
+      Ready to Hire Cab?  <input id="resource_schedule_isreadytohire" style="" name="resource_schedule[isreadytohire]" type="checkbox" value="1"> 
+  <%end%>
+
+
 <% if @results.count > 0 %>
 
 <h4><%= @results.count %> Matches Found</h4> <br/>
@@ -35,9 +73,6 @@
 <% else %>
   No matching results <br/><br/>
 <% end %>
-
-
-
 
 
 
