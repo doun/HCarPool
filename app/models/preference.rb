@@ -16,7 +16,7 @@ class Preference < ActiveRecord::Base
   end
 
 
-  validates_inclusion_of :carModel, :in => ['Indiga', 'Innova', 'Any']
+  validates_inclusion_of :carModel, :in => ['indica', 'Innova', 'Any']
 
   def carModel
     read_attribute(:carModel)

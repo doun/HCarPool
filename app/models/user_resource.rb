@@ -6,7 +6,7 @@ class UserResource < ActiveRecord::Base
   validates :carNumber, presence: true
   validates :maxCapacity, presence: true
   
-  validates_inclusion_of :carModel, :in => ['Indiga', 'Innova', 'Any']
+  validates_inclusion_of :carModel, :in => ['indica', 'Innova', 'Any']
 
   def carModel
     read_attribute(:carModel)
