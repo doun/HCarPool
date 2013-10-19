@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= csrf_meta_tags %>
 </head>
-<body style="padding-top:80px">
+<body style="padding-top:60px">
     <!--[if lt IE 7]>
         <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -25,8 +25,12 @@
             <% if user_signed_in? %> 
               
               <li><%= image_tag(current_user.image_url, :height=>35, :width=>35) %></li>
-              <li><%= link_to current_user.name, home_register_path(current_user) %></li>
-              <li><%= link_to "Logout", destroy_user_session_path, method:'delete' %></li>
+              <li class="dropdown pull-right"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><%=current_user.name%><strong class="caret"></strong></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "Preferences", home_register_path(current_user) %></li>
+                  <li><%= link_to "Logout", destroy_user_session_path, method:'delete' %></li>
+                </ul>
+              </li>
             <% else %> 
               <li> <p><a href="/users/auth/facebook" class="btn btn-primary btn-small active" ><i class="icon-facebook-sign"></i> &nbsp;Login with Facebook</a></p> </li>
             <% end %>
