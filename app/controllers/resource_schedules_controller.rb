@@ -141,9 +141,16 @@ class ResourceSchedulesController < ApplicationController
     @display = "results"
     if(params[:listid].nil?)
         @display = "empty"
+	@defdate = ""
+	@deftime = ""
     else 
 	@schedule = ResourceSchedule.find(params[:listid])
 	@results = ResourceSchedule.search @schedule.startplace, @schedule.destination, @isowner
+	@defstartplace = @schedule.startplace
+	@defdest = @schedule.destination
+	@defdate = @schedule.starttime.strftime("%d/%m/%Y")
+	@deftime = @schedule.starttime.strftime("%H:%M")
+
 	@resource_schedule = ResourceSchedule.new
     end
   end
@@ -167,8 +174,6 @@ class ResourceSchedulesController < ApplicationController
   # POST /resource_schedules
   # POST /resource_schedules.json
   def searchpass
-	  logger.info "We are in search passenger"
-	  logger.info params
     @resource_schedule = ResourceSchedule.new(params[:resource_schedule])
     @resource_schedule.userId = current_user.id
     @resource_schedule.startplace = params[:startplace]

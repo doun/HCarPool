@@ -1,18 +1,19 @@
 <%= form_for(@resource_schedule, url: findcar_path) do |f| %>
 <% @areas = getAreas %>
 <%= hidden_field_tag :isPassenger, "0" %>
-      From <%= select_tag(:startplace, options_for_select(@areas)) %>
-      To <%= select_tag(:destination, options_for_select(@areas)) %>
+
+From <%= select_tag(:startplace, options_for_select(@areas, @defstartplace)) %>
+To <%= select_tag(:destination, options_for_select(@areas, @defdest)) %>
       At  
       <div id="datepicker1" class="input-append date">
-        <input data-format="dd/MM/yyyy" type="text" id="resource_schedule_startdate" name="resource_schedule_startdate" size="20" style="width:80px"></input>
+        <input data-format="dd/MM/yyyy" type="text" id="resource_schedule_startdate" name="resource_schedule_startdate" size="20" style="width:80px" value="<%= @defdate %>"></input>
         <span class="add-on">
           <i data-time-icon="icon-time" data-date-icon="icon-calendar">
           </i>
         </span>
       </div>
       <div id="timepicker1" class="input-append date">
-        <input data-format="hh:mm" type="text" id="resource_schedule_starttime" name="resource_schedule_starttime" style="width:90px"></input>
+        <input data-format="hh:mm" type="text" id="resource_schedule_starttime" name="resource_schedule_starttime" style="width:90px" value="<%= @deftime %>"></input>
         <span class="add-on">
           <i data-time-icon="icon-time" data-date-icon="icon-calendar">
           </i>
