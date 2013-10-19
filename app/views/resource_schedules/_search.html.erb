@@ -1,6 +1,6 @@
 <%= form_for(@resource_schedule, url: findcar_path) do |f| %>
 <% @areas = getAreas %>
-
+<%= hidden_field_tag :isPassenger, "0" %>
       From <%= select_tag(:startplace, options_for_select(@areas)) %>
       To <%= select_tag(:destination, options_for_select(@areas)) %>
       At  
@@ -23,5 +23,6 @@
 
 <%= link_to image_tag("search_icon.jpg"), '', :onclick => 'searchFired();', :remote => true %>
 <br>
-<input name="commit" class="pull right" type="submit" value="Add to listing">
+
+<p class="text-left text-info">If you don't find any results that match your liking, please add your request for others to find you.</p><input name="commit" class="pull right btn btn-primary" type="submit" value="Add this search to Listings">
 <% end %>

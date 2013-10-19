@@ -1,4 +1,7 @@
-<b><div id="mySchedules_header" style="cursor:pointer;text-decoration:underline;">My schedules</div></b>
+<% if @myresource_schedules.count > 0 %>
+
+<b><div id="mySchedules_header" style="cursor:pointer;text-decoration:underline;">My Listings</div></b>
+<br/>
 
 <div id="mySchedules" style="display:none;">
 	<table class="table">
@@ -16,3 +19,6 @@
 	</tr>
 	<% end %>
 </div>
+
+
+<%end%>

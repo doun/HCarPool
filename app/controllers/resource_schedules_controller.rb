@@ -17,7 +17,7 @@ class ResourceSchedulesController < ApplicationController
     #@query.start = params[:start] unless params[:start].nil?
     #@query.dest = params[:start] unless params[:start].nil?
 
-    @results = ResourceSchedule.search params[:start], params[:dest]
+    @results = ResourceSchedule.search params[:start], params[:dest], params[:ispas]
     
     respond_to do |format|
       format.js
@@ -128,11 +128,11 @@ class ResourceSchedulesController < ApplicationController
     @searchcriteria = "car"
 
     if(params[:q] =="fc") #Find Car
-	@searchcriteria = "car"
+	     @searchcriteria = "car"
     elsif (params[:q] =="fp") #Find Passenger
      	@searchcriteria = "pass"
     elsif(params[:q]=="gh") #Group Hire
-	@searchcriteria = "group"
+	     @searchcriteria = "group"
     else
     end
   end
@@ -171,7 +171,7 @@ class ResourceSchedulesController < ApplicationController
     # TODO: Save this and search for passengers
     respond_to do |format|
       if @resource_schedule.save
-        format.html { redirect_to startsearch_path, notice: 'Listing has been successfully added.' }
+        format.html { redirect_to "/search?q=fp", notice: 'Listing has been successfully added.' }
         format.json { render json: startsearch_path, status: :created, location: @resource_schedule }
       else
         format.html { redirect_to startsearch_path, notice: 'Listing has not been added.'  }
