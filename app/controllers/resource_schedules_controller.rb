@@ -141,6 +141,7 @@ class ResourceSchedulesController < ApplicationController
 	 @searchcriteria = "group"
     else
         @searchcriteria = "car"
+     	@isowner = "0"
     end
 
     @myresource_schedules = ResourceSchedule.searchuser current_user.id, @isowner
