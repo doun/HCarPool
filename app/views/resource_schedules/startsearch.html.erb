@@ -25,7 +25,13 @@
     </div>
 </div>
 <br/><br/><br/>
-<%= render :partial => 'search' %><br/><br/>
+<% if @searchcriteria == "car" %>
+	<%= render :partial => 'search' %>
+<% else %>
+	<%= render :partial => 'passsearch' %>
+<% end %> 	
+	<br/><br/>
+
 
 <div id="search_div">
 <%= render :partial => 'list' %>

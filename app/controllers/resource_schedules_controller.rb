@@ -125,10 +125,14 @@ class ResourceSchedulesController < ApplicationController
 
     # TODO: Filter my Resource Schedules based on user id and date time
     @myresource_schedules = ResourceSchedule.all
+    @searchcriteria = "car"
 
     if(params[:q] =="fc") #Find Car
+	@searchcriteria = "car"
     elsif (params[:q] =="fp") #Find Passenger
+     	@searchcriteria = "pass"
     elsif(params[:q]=="gh") #Group Hire
+	@searchcriteria = "group"
     else
     end
   end

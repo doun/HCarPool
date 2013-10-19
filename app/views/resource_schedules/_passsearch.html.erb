@@ -1,40 +1,30 @@
-<%= form_for(:resource_schedule, url: findcar_path) do |f| %>
-  <% if @resource_schedule.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@resource_schedule.errors.count, "error") %> prohibited this resource_schedule from being saved:</h2>
+<%= form_for(@resource_schedule, url: findcar_path) do |f| %>
+<% @areas = getAreas %>
 
-      <ul>
-      <% @resource_schedule.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <% @areas = getAreas %>
-  From <%= select_tag(:startplace, options_for_select(@areas)) %>
-  To <%= select_tag(:destination, options_for_select(@areas)) %>
-  At  
-<div id="datepicker1" class="input-append date">
-    <input data-format="dd/MM/yyyy" type="text" id="resource_schedule_startdate" name="resource_schedule_startdate" size="20" style="width:80px"></input>
-    <span class="add-on">
-      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-      </i>
-    </span>
-  </div>
-<div id="timepicker1" class="input-append date">
-    <input data-format="hh:mm" type="text" id="resource_schedule_starttime" name="resource_schedule_starttime" style="width:90px"></input>
-    <span class="add-on">
-      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-      </i>
-    </span>
-  </div>
+      From <%= select_tag(:startplace, options_for_select(@areas)) %>
+      To <%= select_tag(:destination, options_for_select(@areas)) %>
+      At  
+      <div id="datepicker1" class="input-append date">
+        <input data-format="dd/MM/yyyy" type="text" id="resource_schedule_startdate" name="resource_schedule_startdate" size="20" style="width:80px"></input>
+        <span class="add-on">
+          <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+          </i>
+        </span>
+      </div>
+      <div id="timepicker1" class="input-append date">
+        <input data-format="hh:mm" type="text" id="resource_schedule_starttime" name="resource_schedule_starttime" style="width:90px"></input>
+        <span class="add-on">
+          <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+          </i>
+        </span>
+      </div> &nbsp;&nbsp;
   Available <input id="resource_schedule_startplace" name="resource_schedule[startplace]" size="30" style="width:30px" type="text">
   <input id="resource_schedule_isacnonac" name="resource_schedule_isacnonac" type="checkbox" value="1"> AC Car
 
 
-
-
-  <input name="commit" type="submit" value="Search for Passenger">
+<%= link_to image_tag("search_icon.jpg"), '', :onclick => 'searchFired();', :remote => true %>
+<br>
+<input name="commit" class="pull right" type="submit" value="Add to listing">
 <% end %>
+
 
