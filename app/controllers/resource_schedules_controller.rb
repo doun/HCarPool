@@ -13,6 +13,11 @@ class ResourceSchedulesController < ApplicationController
   def find
     @resource_schedule = ResourceSchedule.new
 
+    @searchcriteria = "pass"
+    if(params[:ispas] =="0")
+    	@searchcriteria = "car"
+    end
+
     #@query = SearchParam.new
     #@query.start = params[:start] unless params[:start].nil?
     #@query.dest = params[:start] unless params[:start].nil?
@@ -134,8 +139,9 @@ class ResourceSchedulesController < ApplicationController
      	@searchcriteria = "pass"
 	@isowner = "1"
     elsif(params[:q]=="gh") #Group Hire
-	     @searchcriteria = "group"
+	 @searchcriteria = "group"
     else
+        @searchcriteria = "car"
     end
 
     @display = "results"
