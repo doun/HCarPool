@@ -99,7 +99,10 @@ class ResourceSchedulesController < ApplicationController
   # POST /resource_schedules.json
   def searchcar
     @resource_schedule = ResourceSchedule.new(params[:resource_schedule])
-    logger.info params[:resource_schedule_startdate].to_s
+    logger.info params
+    @resource_schedule.userId = current_user.id
+    @resource_schedule.startplace = params[:startplace]
+    @resource_schedule.destination = params[:destination]
     @resource_schedule.isowner = false
     @resource_schedule.isconfirmed = false
     @resource_schedule.ishireconfirmed = false
@@ -108,11 +111,11 @@ class ResourceSchedulesController < ApplicationController
     # TODO: We should not be saving this. But, we should just show the results, and give the option to save it
     respond_to do |format|
       if @resource_schedule.save
-        format.html { redirect_to @resource_schedule, notice: 'Resource schedule was successfully created.' }
-        format.json { render json: @resource_schedule, status: :created, location: @resource_schedule }
+        format.html { redirect_to startsearch_path, notice: 'Resource schedule was successfully created.' }
+        format.json { render json: startsearch_path, status: :created, location: @resource_schedule }
       else
-        format.html { render action: "new" }
-        format.json { render json: @resource_schedule.errors, status: :unprocessable_entity }
+        format.html { redirect_to startsearch_path, notice: 'Unable to add it to listing' }
+        format.json { render json: @resource_schedule.errors, status: :created, location: @resource_schedule }
       end
     end
   end
@@ -122,10 +125,14 @@ class ResourceSchedulesController < ApplicationController
 
     # TODO: Filter my Resource Schedules based on user id and date time
     @myresource_schedules = ResourceSchedule.all
+    @searchcriteria = "car"
 
     if(params[:q] =="fc") #Find Car
+	@searchcriteria = "car"
     elsif (params[:q] =="fp") #Find Passenger
+     	@searchcriteria = "pass"
     elsif(params[:q]=="gh") #Group Hire
+	@searchcriteria = "group"
     else
     end
   end
@@ -149,7 +156,13 @@ class ResourceSchedulesController < ApplicationController
   # POST /resource_schedules
   # POST /resource_schedules.json
   def searchpass
+	  logger.info "We are in search passenger"
+	  logger.info params
     @resource_schedule = ResourceSchedule.new(params[:resource_schedule])
+    @resource_schedule.userId = current_user.id
+    @resource_schedule.startplace = params[:startplace]
+    @resource_schedule.destination = params[:destination]
+    @resource_schedule.acNonac = params[:resource_schedule_isacnonac]
     @resource_schedule.isowner = true
     @resource_schedule.isconfirmed = true
     @resource_schedule.ishireconfirmed = false
@@ -158,10 +171,10 @@ class ResourceSchedulesController < ApplicationController
     # TODO: Save this and search for passengers
     respond_to do |format|
       if @resource_schedule.save
-        format.html { redirect_to @resource_schedule, notice: 'Resource schedule was successfully created.' }
-        format.json { render json: @resource_schedule, status: :created, location: @resource_schedule }
+        format.html { redirect_to startsearch_path, notice: 'Listing has been successfully added.' }
+        format.json { render json: startsearch_path, status: :created, location: @resource_schedule }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to startsearch_path, notice: 'Listing has not been added.'  }
         format.json { render json: @resource_schedule.errors, status: :unprocessable_entity }
       end
     end
