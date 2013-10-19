@@ -15,7 +15,15 @@
 //= require twitter/bootstrap
 //= require_tree .
 //
+function sizeContent() {
+    var newHeight = $("html").height() - $("#header").height() - $("#footer").height() + "px";
+    $("#container_div").css("height", newHeight);
+}
+
+$(window).resize(sizeContent);
 $(document).ready(function(){
+
+sizeContent();
 
   $('#mySchedules_header').click(function(){
         $('#mySchedules').slideToggle('slow', function(){});});
