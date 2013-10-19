@@ -13,7 +13,11 @@ class ResourceSchedulesController < ApplicationController
   def find
     @resource_schedule = ResourceSchedule.new
 
-    @results = ResourceSchedule.all
+    #@query = SearchParam.new
+    #@query.start = params[:start] unless params[:start].nil?
+    #@query.dest = params[:start] unless params[:start].nil?
+
+    @results = ResourceSchedule.search params[:start], params[:dest]
     
     respond_to do |format|
       format.js
@@ -95,6 +99,7 @@ class ResourceSchedulesController < ApplicationController
   # POST /resource_schedules.json
   def searchcar
     @resource_schedule = ResourceSchedule.new(params[:resource_schedule])
+    logger.info params[:resource_schedule_startdate].to_s
     @resource_schedule.isowner = false
     @resource_schedule.isconfirmed = false
     @resource_schedule.ishireconfirmed = false

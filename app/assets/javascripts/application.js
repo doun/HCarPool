@@ -36,3 +36,19 @@ $(function() {
     });
 });
 
+function searchFired(){
+
+  var start = $("#startplace option:selected").val();
+  var dest = $("#destination option:selected").val();
+
+  $.ajax({
+    url: "/find",
+    type: "POST",
+    data: {start:start, dest:dest },
+    success: function(data) {
+    },
+    error: function(XMLHttpRequest, textStatus, errorThrown) { 
+    }   
+  });
+
+}

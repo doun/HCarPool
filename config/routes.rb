@@ -29,6 +29,7 @@ end
 
   get '/search' => 'resource_schedules#startsearch', :as => 'startsearch' 
   get '/find' => 'resource_schedules#find', :as => 'find' 
+  post '/find' => 'resource_schedules#find', :as => 'find' 
   
 
   # The priority is based upon order of creation:

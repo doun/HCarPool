@@ -1,4 +1,4 @@
-<%= form_for(@resource_schedule, url: find_path) do |f| %>
+<%= form_for(@resource_schedule, url: findcar_path) do |f| %>
   <% if @resource_schedule.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@resource_schedule.errors.count, "error") %> prohibited this resource_schedule from being saved:</h2>
@@ -34,19 +34,13 @@
       </div>
       Ready to Hire Cab?  <input id="resource_schedule_isreadytohire" style="" name="resource_schedule[isreadytohire]" type="checkbox" value="1"> 
   <%end%>
-<% if 1==2  %>
-    From: <b><%= @resource_schedule.startplace %></b><br/>
-    To: <b><%= @resource_schedule.destination %></b><br/>
-    At: <b><%= @resource_schedule.starttime %></b><br/><br/>
-<% end %>
 
 
-<input name="commit" type="submit" value="Search for Car">
-
+<% if @results.count > 0 %>
 
   <table class="table">
     <tr>
-      <th>Userid</th>
+      <th>Name</th>
       <th>Isowner</th>
       <th>Startplace</th>
       <th>Destination</th>
@@ -73,6 +67,12 @@
     </tr>
   <% end %>
   </table>
+<% else %>
+  No matching results <br/><br/>
+<% end %>
+
+
+<input name="commit" class="pull right" type="submit" value="Add to listing">
 
 
 <% end %>
