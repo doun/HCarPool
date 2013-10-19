@@ -1,22 +1,28 @@
 <br/>
-<div class="row-fluid">
-	<div class="span12">
-		<h3>
-				Let's get started ...
-		</h3>
-	</div>
-</div>
 <br/>
 <div class="row-fluid" style="display:inline-block; vertical-align: middle">
     <div class="span12">
         <span style="padding:5px">
-    	   <a href="/search?q=fc" class="btn btn-primary btn-large active"><img src="/assets/icon_HireACar.png"> Find Cars</a>
+            <% if @searchcriteria == "car" %>
+    	       <a href="/search?q=fc" class="btn btn-primary btn-large active"><img src="/assets/icon_HireACar.png"> Find Cars</a>
+            <%else%>
+                <a href="/search?q=fc" class="btn btn-success btn-large active"><img src="/assets/icon_HireACar.png"> Find Cars</a>
+            <%end%>
         </span>
         <span style="padding:5px">
-            <a href="/search?q=fp" class="btn btn-large  btn-success active"><img src="/assets/icon_HirePassenger.png"> Find Passengers</a>
+            <% if @searchcriteria == "pass" %>
+                <a href="/search?q=fp" class="btn btn-large  btn-primary active"><img src="/assets/icon_HirePassenger.png"> Find Passengers</a>
+            <%else%>
+                <a href="/search?q=fp" class="btn btn-large btn-success active"><img src="/assets/icon_HirePassenger.png"> Find Passengers</a>
+            <%end%>
+
         </span>
         <span style="padding:5px">
-            <a href="/search?q=gh" class="btn btn-large  btn-warning active"><img src="/assets/icon_GroupHire.png"> Group Hire a Car</a>
+            <% if @searchcriteria == "group" %>
+                <a href="/search?q=gh" class="btn btn-large  btn-primary active"><img src="/assets/icon_GroupHire.png"> Group Hire a Car</a>
+            <%else%>
+                <a href="/search?q=gh" class="btn btn-large  btn-success active"><img src="/assets/icon_GroupHire.png"> Group Hire a Car</a>
+            <%end%>
         </span>
     </div>
  </div>
