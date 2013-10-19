@@ -1,6 +1,7 @@
+<h3>  </h3>
 <%= form_for(@resource_schedule, url: findpassenger_path) do |f| %>
 <% @areas = getAreas %>
-
+  <%= hidden_field_tag :isPassenger, "1" %>
       From <%= select_tag(:startplace, options_for_select(@areas)) %>
       To <%= select_tag(:destination, options_for_select(@areas)) %>
       At  
