@@ -82,6 +82,41 @@
    <%= link_to " Resource", user_addResource_path(@preference.user), :class => " icon-white icon-plus-sign btn btn-success btn-small" , remote: true%>
    
   <div id='resourceList'>
-<%= render :partial => 'resources' %>
+    <% if @user.user_resource.blank? == false %>
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Is it a A/c car?</th>
+      <th>Preferred Car Model</th>
+      <th>Max capacity</th>
+      <th>Car Number</th>
+      <th>Owner</th>
+      <th>Driver Name</th>
+      <th>Self Drive</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      </tr>
+  </thead>
+  <tbody>
+    <%end%>
+<% @user.user_resource.each do |user_resource| %>
+      <tr>
+        <td><%= user_resource.acNonac %></td>
+        <td><%= user_resource.carModel %></td>
+        <td><%= user_resource.maxCapacity %></td>
+        <td><%= user_resource.carNumber %></td>
+        <td><%= user_resource.isOwned %></td>
+        <td><%= user_resource.driverName %></td>
+        <td><%= user_resource.isSelfDrive %></td>
+        </td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_user_user_resource_path(@user, user_resource), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      user_user_resource_path(@user,user_resource),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr><%end%>
   </div>
 </div>
