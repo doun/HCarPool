@@ -55,7 +55,7 @@
         </h2>
         <p>
           RideShare lets you find vehicles for your commute, find passengers to accompany you in your vehicle and allows a group of people to share a hired vehicle. It lets hiring companies find groups of people looking to hire vehicles. 
-        </p>
+        </p><br/>
         <p>
             <% if user_signed_in? %> 
               <%= link_to "Get started »", startsearch_path, class: "btn btn-primary btn-large active"%>
@@ -63,6 +63,7 @@
               <a class="btn btn-primary btn-large active" href="/users/auth/facebook"><i class="icon-facebook-sign"></i>  &nbsp;Login with Facebook to get started »</a>
              <% end %>
         </p>
+        <br/>
         <h3><i class="icon-star" style="color:green"></i>1530 Commutes &nbsp;<i class="icon-star"  style="color:green"></i>45900 Shared Kms &nbsp;<i class="icon-star"  style="color:green"></i>68850 litres of Petrol saved</h3>
       </div>
     </div>
