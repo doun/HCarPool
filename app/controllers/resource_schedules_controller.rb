@@ -141,11 +141,16 @@ class ResourceSchedulesController < ApplicationController
     @display = "results"
     if(params[:listid].nil?)
         @display = "empty"
+	@defdate = ""
+	@deftime = ""
     else 
 	@schedule = ResourceSchedule.find(params[:listid])
 	@results = ResourceSchedule.search @schedule.startplace, @schedule.destination, @isowner
 	@defstartplace = @schedule.startplace
 	@defdest = @schedule.destination
+	@defdate = @schedule.starttime.strftime("%d/%m/%Y")
+	@deftime = @schedule.starttime.strftime("%H:%M")
+
 	@resource_schedule = ResourceSchedule.new
     end
   end
