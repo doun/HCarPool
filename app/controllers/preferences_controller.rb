@@ -1,19 +1,37 @@
 class PreferencesController < ApplicationController
   # GET /preferences
   # GET /preferences.json
+
+  before_filter :get_user
+
+  def get_user
+    logger.info params
+    @user = User.find(params[:user_id])
+  end
+
+
   def index
-    @preferences = Preference.all
+    @preference = @user.preference
+
+
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @preferences }
+    if @preference.nil?
+      @preference = @user.build_preference()
+      format.html { redirect_to new_user_preference_path(@user, @preference), notice: 'Preference was successfully created.' }
+    
+  else
+      format.html { redirect_to user_preference_path(@user, @preference), notice: 'Preference was successfully created.' }
+    end
+      format.json { render json: @preference }
     end
   end
 
   # GET /preferences/1
   # GET /preferences/1.json
   def show
-    @preference = Preference.find(params[:id])
+    @preference = @user.preference
+    @resources = @user.user_resource
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +42,8 @@ class PreferencesController < ApplicationController
   # GET /preferences/new
   # GET /preferences/new.json
   def new
-    @preference = Preference.new
+    @preference = @user.build_preference()
+    @resources = @user.user_resource
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,17 +53,17 @@ class PreferencesController < ApplicationController
 
   # GET /preferences/1/edit
   def edit
-    @preference = Preference.find(params[:id])
+    @preference = @user.preference
   end
 
   # POST /preferences
   # POST /preferences.json
   def create
-    @preference = Preference.new(params[:preference])
+    @preference = @user.create_preference(params[:preference])
 
     respond_to do |format|
       if @preference.save
-        format.html { redirect_to @preference, notice: 'Preference was successfully created.' }
+        format.html { redirect_to user_preference_path(@user, @preference), notice: 'Preference was successfully created.' }
         format.json { render json: @preference, status: :created, location: @preference }
       else
         format.html { render action: "new" }
@@ -80,4 +99,5 @@ class PreferencesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end

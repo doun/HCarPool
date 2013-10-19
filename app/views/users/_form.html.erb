@@ -1,8 +1,6 @@
-  <%= form_for @user_resource, :url => user_user_resources_path(@user_resource.user), :html => { :class => 'form-horizontal' } do |f| %>
-
-
-  <div class="control-group">
-    <label class="control-label" for="user_user_resources_attributes_acNonac">A/c or Non A/c</label>
+    <%= form_for @resource, :url => user_user_resources_path(@resource.user), :html => { :class => 'form-horizontal' } do |f| %>
+    <div class="control-group">
+    <label class="control-label" for="user_user_resources_attributes_acNonac">A/c</label>
     <div class="controls">
       <%= f.check_box :acNonac, :class => 'check_box'%>
     </div>
@@ -26,7 +24,7 @@
     </div>
   </div>
       <div class="control-group">
-    <label class="control-label" for="user_user_resources_attributes_driverName">Car Number</label>
+    <label class="control-label" for="user_user_resources_attributes_driverName">Driver Name</label>
         <div class="controls">
       <%= f.text_field :driverName, :class => 'text_field'%>
     </div>

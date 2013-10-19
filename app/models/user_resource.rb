@@ -1,6 +1,6 @@
 class UserResource < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :acNonac, :carModel, :carNumber, :driverName, :imageUrl, :isOwned, :isSelfDrive, :maxCapacity
+  attr_accessible :acNonac, :carModel, :carNumber, :driverName, :imageUrl, :isOwned, :isSelfDrive, :maxCapacity, :user_id
 
   validates :acNonac, presence: true
   validates :carModel, presence: true
