@@ -1,3 +1,4 @@
+<%= form_for(@resource_schedule, url: findcar_path) do |f| %>
 <% @areas = getAreas %>
 
       From <%= select_tag(:startplace, options_for_select(@areas)) %>
@@ -20,5 +21,7 @@
       Ready to Hire Cab?  <input id="resource_schedule_isreadytohire" style="" name="resource_schedule[isreadytohire]" type="checkbox" value="1"> 
 
 
-<td> <%= link_to image_tag("search_icon.jpg"), '', :onclick => 'searchFired();', :remote => true %></td> 
-
+<%= link_to image_tag("search_icon.jpg"), '', :onclick => 'searchFired();', :remote => true %>
+<br>
+<input name="commit" class="pull right" type="submit" value="Add to listing">
+<% end %>
