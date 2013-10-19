@@ -11,7 +11,6 @@
       <th>Start Time</th>
       
       <th>Seat(s) Available</th>
-      <th>Ready to hire</th>
     </tr>
 
   <% @results.each do |r| %>
@@ -30,11 +29,6 @@
       <td><%= r.destination %></td>
       <td><%= r.starttime %></td>
       <td><%= r.available %></td>
-      <% if r.isreadytohire == true %>
-        <td>Yes</td>
-      <%else%>
-        <td>No</td>
-      <%end%>
     </tr>
   <% end %>
   </table>
