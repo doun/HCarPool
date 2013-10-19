@@ -1,4 +1,4 @@
-<%= form_for(@resource_schedule, url: findcar_path) do |f| %>
+<%= form_for(@resource_schedule, url: findpassenger_path) do |f| %>
 <% @areas = getAreas %>
 
       From <%= select_tag(:startplace, options_for_select(@areas)) %>
@@ -18,7 +18,7 @@
           </i>
         </span>
       </div> &nbsp;&nbsp;
-  Available <input id="resource_schedule_startplace" name="resource_schedule[startplace]" size="30" style="width:30px" type="text">
+  Available <input id="resource_schedule_available" name="resource_schedule[available]" size="30" style="width:30px" type="text">
   <input id="resource_schedule_isacnonac" name="resource_schedule_isacnonac" type="checkbox" value="1"> AC Car
 
 
