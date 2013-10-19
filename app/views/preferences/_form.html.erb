@@ -45,14 +45,14 @@
     <div class="control-group">
     <label class="control-label" for="user_preference_attributes_from">Starting Location</label>
         <div class="controls">
-      <%= builder.select(:from, options_for_select(@areas)) %>
+      <%= builder.select :from, options_for_select(@areas,:selected => @preference.from)  %>
     </div>
   </div>
 
     <div class="control-group">
     <label class="control-label" for="user_preference_attributes_to">Destination location</label>
               <div class="controls">
-      <%= builder.select(:to, options_for_select(@areas)) %>
+      <%= builder.select :to, options_for_select(@areas,:selected => @preference.to)%>
     </div>
   </div>
   <div class="control-group">
