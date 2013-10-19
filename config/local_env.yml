@@ -18,8 +18,8 @@ ADMIN_EMAIL_USER: 'gshackathon@gmail.com'
 ADMIN_EMAIL_PASSWORD: 'gshackathon13'
 
 
-FACEBOOK_ID: '479313385516602'
-FACEBOOK_SECRET: 'a0948a7bf8531765814c592b04713ce3'
+FACEBOOK_ID: '218066335021993'
+FACEBOOK_SECRET: '71254976c8837efcfaca3a3577f1c8ff'
 
-FACEBOOK_APP_DOMAIN: 'gscarpool.herokuapp'
-HOSTNAME: 'http://gscarpool.herokuapp.com/'
+FACEBOOK_APP_DOMAIN: 'localhost'
+HOSTNAME: 'http://localhost:3000'

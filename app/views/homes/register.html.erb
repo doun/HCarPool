@@ -1,23 +1,21 @@
-<%- model_class = UserResource -%>
 <div class="page-header">
   <h1>Registration form</h1>
-  <%= form_for @user, :url => home_updateuser_path, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= form_for @preference, :url => home_updateuser_path, :html => { :class => 'form-horizontal' } do |builder| %>
   <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
+    <%= label_tag "Name", :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
+      <%= text_field_tag current_user.name, :class => 'text_field uneditable-input' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :email, :class => 'control-label' %>
+    <%= label_tag :email, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :email, :readonly=>true,  :class => 'text_field uneditable-input' %>
+      <%= text_field_tag current_user.email, :readonly=>true,  :class => 'text_field uneditable-input' %>
     </div>
   </div>
 
   <h3>Preferences</h3>
-  <%= f.fields_for :preference do |builder| %>
-    
+  
   <div class="control-group">
     <label class="control-label" for="user_preference_attributes_acNonac">A/c or Non A/c</label>
     <div class="controls">
@@ -62,12 +60,11 @@
     </div>
   </div>
 
-  <% end %>
   <h3>Do you own a car? Add your car details here. </h3>
    <%= link_to "addResource", home_updateuser_path , remote: true%>
   <div id='resourceList'></div>
     <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= builder.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 root_path, :class => 'btn' %>
   </div>

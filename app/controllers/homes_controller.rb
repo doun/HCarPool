@@ -21,10 +21,7 @@ class HomesController < ApplicationController
   end
 
   def register
-    logger.info params 
-    @user = User.find(params[:home_id])
-
-      @user.build_preference
+    @preference = Preference.new
 
     respond_to do |format|
       format.html # start.html.erb
@@ -41,10 +38,12 @@ class HomesController < ApplicationController
   end
 
   def updateuser
-    @user = User.new(params[:user])
-    @user.save
+    @preference = Preference.new(params[:preference])
+
+    
     
     respond_to do |format|
+      @preference.save
         format.html { redirect_to home_register_path, notice: 'Successfully registered.' }
         format.json { render json: @user, status: :created, location: @user }
       end
