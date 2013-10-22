@@ -31,10 +31,11 @@
                   <li><%= link_to "Logout", destroy_user_session_path, method:'delete' %></li>
                 </ul>
               </li>
+              <li><%= link_to "Search", startsearch_path%></li>
             <% else %> 
               <li> <p><a href="/users/auth/facebook" class="btn btn-primary btn-small active" ><i class="icon-facebook-sign"></i> &nbsp;Login with Facebook</a></p> </li>
             <% end %>
-            <li><%= link_to "Search", startsearch_path%></li>
+            
             <li><a href="#">How it Works</a></li>
           </ul>
 
