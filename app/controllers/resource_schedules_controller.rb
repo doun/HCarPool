@@ -141,6 +141,7 @@ class ResourceSchedulesController < ApplicationController
 	 @searchcriteria = "group"
     else
         @searchcriteria = "car"
+     	@isowner = "0"
     end
 
     @myresource_schedules = ResourceSchedule.searchuser current_user.id, @isowner
@@ -148,8 +149,8 @@ class ResourceSchedulesController < ApplicationController
     @display = "results"
     if(params[:listid].nil?)
         @display = "empty"
-	@defdate = ""
-	@deftime = ""
+	@defdate = Date.today.strftime("%d/%m/%Y")
+	@deftime = (Time.now + 30.minutes).strftime("%H:%M")
     else 
 	@schedule = ResourceSchedule.find(params[:listid])
 	@results = ResourceSchedule.search @schedule.startplace, @schedule.destination, @isowner
